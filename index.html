@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTC Dashboard</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon-16x16.png">
+  <link rel="manifest" href="./img/favicons/manifest.json">
+  <link rel="mask-icon" href="./img/favicons/safari-pinned-tab.svg" color="#d66565">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+  <meta name="apple-mobile-web-app-title" content="MTC Dashboard">
+  <meta name="application-name" content="MTC Dashboard">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+
+  <div id="app">
+    <!-- NavBar -->
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#headerwrap_anchor" v-smooth-scroll>MTC DASHB<i class="fa fa-pie-chart"></i>ARD</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a id="menu" @click="showModal = true"><i class="fa fa-map-signs" aria-hidden="true"></i> {{select_region || "Выбрать регион" }}</a>
+            </li>
+            <li>
+              <a href="#service_anchor" v-smooth-scroll><i class="fa fa-wrench" aria-hidden="true"></i> Сервисы</a>
+            </li>
+            <li>
+              <a href="#dg_anchor" v-smooth-scroll><i class="fa fa-area-chart" aria-hidden="true"></i> Отчеты</a>
+            </li>
+            <li>
+              <a href="#contact_anchor" v-smooth-scroll><i class="fa fa-user" aria-hidden="true"></i> Контакты</a>
+            </li>
+            <li>
+              <a href="mailto:mts-dashboard@mts.ru">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Заголовок -->
+    <span id="headerwrap_anchor" class="anchor"></span>
+    <div id="headerwrap">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-md-6 col-md-push-6 header_background">
+
+          </div>
+
+          <div class="col-md-5 col-md-offset-1 col-md-pull-6 main_header" style="position: relative;">
+            <headtext >MTC <span id="dash_nowrap">DASHB<i class="fa fa-pie-chart main_color"></i>ARD</span></headtext>
+            <h3 class="centered">Откройте для себя современные инструменты анализа и визуализации данных с новой и современной аналитической онлайн-платформой</h3>
+            <a href="http://mtsdash.ru:8088" target="_blank">
+              <button class="btn_head">ОТКРЫТЬ СЕЙЧАС</button>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Сервисы -->
+    <span id="service_anchor" class="anchor"></span>
+    <div id="service">
+    <div class="container w">
+      <div class="row centered">
+
+        <div class="col-md-4">
+          <i class="fa fa-pencil-square-o fa-3x"></i>
+          <h4></h4>
+          <a href="http://skr13.mts.ru/bpo/d/drbr/_layouts/15/listform.aspx?PageType=8&ListId=%7BDEAD92E4%2D26A1%2D40C1%2DA654%2D32DF0FF5AC50%7D&RootFolder=" target="_blank">
+            <h4>Создать заявку</h4>
+          </a>
+          <p>Заказ разовых выгрузок в случае отсутствия нужного показателя или требуемой детализации в отчетах</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fa fa-plus-square-o fa-3x"></i>
+          <h4></h4>
+          <a href="#" onclick="alert('Функция в разработке');">
+            <h4>Добавить отчет</h4>
+          </a>
+          <p>Запрос на разработку периодического отчета или размещение существующей отчетности на данном сайте</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fa fa-bell-o fa-3x"></i>
+          <h4></h4>
+          <a href="#" onclick="alert('Функция в разработке');">
+            <h4>Уведомления</h4>
+          </a>
+          <p>Настройка оповещений об актуальных изменениях в отчетах по e-mail или через push-уведомления в Telegram </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- Отчеты -->
+    <span id="dg_anchor" class="anchor"></span>
+    <div id="dg">
+      <div class="container">
+        <div class="row centered">
+          <div class="col-lg-8 col-lg-offset-2">
+            <h4>Отчеты</h4>
+            <h3>В этом разделе вы можете скачать актуальные версии офлайн отчетов для вашего региона</h3>
+          </div>
+          <div class="col-lg-12" style="margin-bottom: 10px;">
+            <nav class="nav_i">
+              <menu class="nav__controls">
+                <i class="fa fa-filter" ></i>
+
+                <li v-for="(active, menu) in menus" class="nav__label"
+                    :class="{
+          'nav__label--active' : active
+        }" @click="setMenu(menu, active)">
+                  {{ menu }}
+                </li>
+
+              </menu>
+              <li class="nav__label nav__label--clear" @click="clearAllFilters" >Clear all</li>
+            </nav>
+
+            <transition-group name="dropdown" tag="section" class="dropdown" :style="dropdown">
+              <menu v-for="(options, filter) in filters" class="filters"
+                    v-show="menus[filter]" ref="menu" :key="filter">
+                <li v-if="filter === 'rating'" class="filters__rating">
+                  <output>
+                    <label>Minimum rating:&nbsp;</label>
+                    {{ parseFloat(filters.rating).toFixed(1) }}
+                  </output>
+
+                  <input v-model="filters.rating" class="filters__range" id="filter__range" type="range"
+                         :min="rating.min" :max="rating.max" step="0.1" style="width: 200px"/>
+                </li>
+
+                <template v-else>
+                  <li v-for="(active, option) in options" class="filters__item"
+                      :class="{ 'filters__item--active': active }"
+                      @click="setFilter(filter, option)">
+                    {{ option }}
+                  </li>
+                </template>
+
+              </menu>
+            </transition-group>
+          </div>
+          <transition-group name="company" tag="div">
+            <div class="col-md-3 col-sm-4 report__list" v-for="report in list" v-bind:key="report.id" v-if="report.rating_filter >= filters.rating">
+              <ul cldis="report__list" class="pdd_fix">
+                <li class="report">
+
+                  <div class="report__info">
+                    <icon class="report__logo">
+                      <i v-bind:class="[report.iclass]" aria-hidden="true"></i>
+                    </icon>
+                    <h2 class="report__name">{{report.report_name}}</h2>
+                    <h2 class="report__description">{{report.report_description}}</h2>
+                    <br>
+                    <button @click="OpenReport(report.id)" class="btn_report">СКАЧАТЬ</button>
+                  </div>
+
+                  <ul class="report__details">
+                    <li class="report__data">
+                      <p class="report__label">Бизнес:</p>
+                      <p class="report__text">{{report.business_filter}}</p>
+                    </li>
+
+                    <li class="report__data">
+                      <p class="report__label">Период:</p>
+                      <p class="report__text">{{report.period_filter}}</p>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </transition-group>
+          </div>
+        </div>
+    </div>
+
+    <!-- Контакты -->
+    <span id="contact_anchor" class="anchor"></span>
+    <div id="contact">
+    <div class="container wb">
+      <div class="row centered">
+
+        <div class="col-lg-8 col-lg-offset-2  marg_bottom">
+          <h4>Контакты</h4>
+          <h3>В случае возникновения вопросов вы всегда можете обратиться к нашим сотрудникам </h3>
+        </div>
+
+
+        <div class="col-md-3 col-sm-4">
+          <div class="contact_block">
+            <img class="contact_image" src="./img/users/elena.svg">
+            <h2 class="contact__name">Елена Осадчая</h2>
+            <h2 class="contact__description">начальник отдела</h2>
+            <a href="https://newportal.mts.ru/my/Person.aspx?accountname=ADMSK%5Cysosadch" target="_blank">
+            <button class="btn_report">ПЕРЕЙТИ</button>
+          </a>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-4">
+          <div class="contact_block">
+            <img class="contact_image" src="./img/users/pasha.svg">
+            <h2 class="contact__name">Павел Тюваев</h2>
+            <h2 class="contact__description">руководитель направления</h2>
+            <a href="https://newportal.mts.ru/my/Person.aspx?accountname=ADMSK%5Cpstyuvay" target="_blank">
+              <button class="btn_report">ПЕРЕЙТИ</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-4">
+          <div class="contact_block">
+            <img class="contact_image" src="./img/users/alexander.svg">
+            <h2 class="contact__name">Саша Тараканов</h2>
+            <h2 class="contact__description">ведущий аналитик</h2>
+            <a href="https://newportal.mts.ru/my/Person.aspx?accountname=ADMSK%5Caotaraka" target="_blank">
+              <button class="btn_report">ПЕРЕЙТИ</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-4">
+          <div class="contact_block">
+            <img class="contact_image" src="./img/users/vladimir.svg">
+            <h2 class="contact__name">Владимир Гладков</h2>
+            <h2 class="contact__description">эксперт</h2>
+            <a href="https://newportal.mts.ru/my/Person.aspx?accountname=ADMSK%5Cvvgladk1" target="_blank">
+              <button class="btn_report">ПЕРЕЙТИ</button>
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+    <!-- Компетенции -->
+
+    <div id="dg">
+      <div class="container">
+        <div class="row centered">
+          <div class="col-lg-8 col-lg-offset-2">
+            <h4>Наши компетенции</h4>
+            <h3>Разработка отчетов и аналитических материалов на профессиональном уровне</h3>
+            <img class="imglap" src="./img/lap.png">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Подвал сайта -->
+
+    <div id="f">
+      <div class="container">
+        <div class="row centered">
+          <h4>&copy 2018 МТС DASHB
+            <i class="fa fa-pie-chart"></i>ARD</h4>
+          <h3>Отдел коммерческой аналитики</h3>
+        </div>
+      </div>
+    </div>
+
+    <!--  ***********  Модальное окно  ***********       -->
+
+    <modal v-if="showModal" @close="showModal = false">
+
+      <!-- Заменяем заголовка тела шаблона на содержимое slot=header -->
+      <div slot="header">
+        <i class="fa fa-map-signs fa-4x fa-pull-left" aria-hidden="true"></i>
+        <h2>ВЫБЕРИТЕ РЕГИОН ИЛИ КЛАСТЕР</h2>
+        <p class="modal_text">Чтобы оперативно найти соответствующий регион воспользуйтесь поиском или сортировкой</p>
+      </div>
+
+      <!-- Заменяем содержание тела шаблона на содержимое slot=body -->
+      <div slot="body">
+
+        <div class="pad">
+
+          <!-- Форма поиска с значком -->
+
+          <input class="input_form" type="text" v-model="FilterRegion" v-on:focus="showCluster = false" v-on:blur="showCluster = true"
+            placeholder="" />
+          <i id="filtersubmit" class="fa fa-search"></i>
+
+          <button class="btn_sort" @click="InvertSort()">
+            <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+          </button>
+
+          <!-- Кнопки кластеров (начало) -->
+          <transition name="slide-fade">
+            <div v-if="showCluster" class="inline">
+              <button class="btn" @click="ClickRegion(RegionData[0].region)">Россия</button>
+              <button class="btn" @click="ClickRegion(RegionData[1].region)" @mouseover="SetClusterFilter(2)" @mouseleave="SetClusterFilter(0)">Растущий</button>
+              <button class="btn" @click="ClickRegion(RegionData[2].region)" @mouseover="SetClusterFilter(3)" @mouseleave="SetClusterFilter(0)">Сильный</button>
+              <button class="btn" @click="ClickRegion(RegionData[3].region)" @mouseover="SetClusterFilter(4)" @mouseleave="SetClusterFilter(0)">Лидер</button>
+              <button class="btn" @click="ClickRegion(RegionData[4].region)" @mouseover="SetClusterFilter(5)" @mouseleave="SetClusterFilter(0)">Эффективный</button>
+            </div>
+          </transition>
+          <!-- Кнопки кластеров (конец) -->
+
+        </div>
+
+        <!-- Отрисовка всех регионов (начало) -->
+        <div class="wrap">
+          <transition-group name="flip-list" tag="ul">
+            <li @click="ClickRegion(item.region)" @mouseover="SetActiveIndexRegion(index)" @mouseleave="ClearActiveIndexRegion" :class="ReturnClass(item,index)"
+              v-for="(item, index) in filteredAndSortedData.slice(5)" :key="item.reg_id" :item="item">
+              {{item.region}}
+            </li>
+          </transition-group>
+        </div>
+        <!-- Отрисовка всех регионов (конец) -->
+
+      </div>
+
+      <!-- Заменяем подвал тела шаблона на содержимое slot=footer -->
+      <div slot="footer">
+
+        <div class="info" v-if="ActiveIndexRegion > -1">
+          <b>Регион:</b> {{RegionData[ActiveIndexRegion].region}} &nbsp; &nbsp; &nbsp;
+          <b>Кластер: </b>{{RegionData[ActiveIndexRegion].cluster}} &nbsp; &nbsp; &nbsp;
+          <b>Макрорегион:</b> {{RegionData[ActiveIndexRegion].mr}}
+        </div>
+
+        <div class="info" v-else>
+          <inf class="cl_1"> Москва</inf> &nbsp; &nbsp;
+          <inf class="cl_2"> Растущий</inf> &nbsp; &nbsp;
+          <inf class="cl_3"> Сильный</inf> &nbsp; &nbsp;
+          <inf class="cl_4"> Лидер</inf> &nbsp; &nbsp;
+          <inf class="cl_5"> Эффективный</inf> &nbsp; &nbsp;
+        </div>
+
+      </div>
+
+    </modal>
+
+      <!-- Заменяем подвал тела шаблона на содержимое slot=footer -->
+      <div slot="footer">
+
+        <div class="info">
+          <hr>
+          <button class="btn_report fix-width" @click="confirmSort()">Применить фильтр</button>
+        </div>
+
+      </div>
+
+
+    </modal>
+  </div>
+
+  <!-- Начало шаблона модального окна для выбора региона или кластера -->
+
+  <script type="text/x-template" id="modal-template">
+      <transition name="modal">
+          <div class="modal-mask">
+              <div class="modal-wrapper">
+                  <div class="modal-container">
+
+                      <!-- Кнопка закрытия модального окна -->
+                      <a class="btn-close" @click="$emit('close')"><i class="fa fa-window-close" aria-hidden="true"></i></a>
+
+                      <!-- Заголовок модального окна -->
+                      <div class="modal-header">
+                          <slot name="header">
+                              Заголовок модального окна
+                          </slot>
+                      </div>
+
+                      <!-- Тело модального окна -->
+                      <div class="modal-body">
+                          <slot name="body">
+                              Тело модального окна
+                          </slot>
+                      </div>
+
+                      <!-- Подвал модального окна -->
+                      <div class="modal_footer">
+                          <slot name="footer">
+                              Подвал модального окна
+                          </slot>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </transition>
+  </script>
+
+  <!-- Конец шаблона модального окна для выбора региона или кластера -->
+  <script src="js/vue.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/vue-smooth-scroll.min.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>
