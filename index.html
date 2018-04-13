@@ -167,12 +167,14 @@
             </transition-group>
           </div>
           <transition-group name="company" tag="div">
-            <div class="col-md-3 col-sm-4 report__list" v-for="report in list" v-bind:key="report.id" v-if="report.rating_filter >= filters.rating">
+            <div class="col-md-3 col-sm-4 report__list" v-for="report in list" v-bind:key="report.id" v-if="report.rating >= filters.rating">
               <ul cldis="report__list" class="pdd_fix">
                 <li class="report">
 
                   <div class="report__info">
-                    <icon class="report__logo">
+                    <span class="label label-danger fix_span_right" v-if="report.online == 'Online'">Online</span>
+                    <span class="label label-success fix_span_left" v-if="report.fresh == 'New'">New</span>
+                    <icon class="report__logo fix_logo">
                       <i v-bind:class="[report.iclass]" aria-hidden="true"></i>
                     </icon>
                     <h2 class="report__name">{{report.report_name}}</h2>
@@ -184,12 +186,12 @@
                   <ul class="report__details">
                     <li class="report__data">
                       <p class="report__label">Бизнес:</p>
-                      <p class="report__text">{{report.business_filter}}</p>
+                      <p class="report__text">{{report.business}}</p>
                     </li>
 
                     <li class="report__data">
                       <p class="report__label">Период:</p>
-                      <p class="report__text">{{report.period_filter}}</p>
+                      <p class="report__text">{{report.period}}</p>
                     </li>
                   </ul>
                 </li>

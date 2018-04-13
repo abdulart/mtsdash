@@ -112,12 +112,25 @@ new Vue({
                 {region:'Чувашская республика', cluster: 'Эффективный', mr:'МР Поволжье', reg_id:78, cl_id:5, sort_id:79, folder: 'Отчетность Регионы', path:'Чувашская республика'},
                 {region:'Ямало-Ненецкий округ', cluster: 'Эффективный', mr:'МР Урал', reg_id:79, cl_id:5, sort_id:80, folder: 'Отчетность Регионы', path:'Ямало-Ненецкий авт.округ'},
                 {region:'Ярославская область', cluster: 'Лидер', mr:'МР Центр', reg_id:80, cl_id:4, sort_id:63, folder: 'Отчетность Регионы', path:'Ярославская область'}
-            ], 
+            ],
             Reports: [
                 {name:'WEEK', path: '12.Еженедельный_отчет', file:'Week_КЦ_', extension: '.xlsb', file_cluster:'Week_КЦ', prefix:['_РФ','_Регионы Роста','_Сильный','_Лидер','_Эффективный']},
                 {name:'BOPOS', path: '02.Мобильный_Бизнес', file:'Мобильный бизнес (BOPOS)', extension: '.xlsb', file_cluster:'BOPOS', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
                 {name:'DFIN', path: '02.Мобильный_Бизнес', file:'Мобильный бизнес (DFIN)', extension: '.xlsb', file_cluster:'DFIN', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
-                {name:'FIX', path: '03.Фиксированный_Бизнес', file:'FIX_FIB', extension: '.xlsb', file_cluster:'03.FIX_FIB', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']}
+                {name:'FIX', path: '03.Фиксированный_Бизнес', file:'FIX_FIB', extension: '.xlsb', file_cluster:'03.FIX_FIB', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
+                {name:'WEEK', path: '12.Еженедельный_отчет', file:'Week_КЦ_', extension: '.xlsb', file_cluster:'Week_КЦ', prefix:['_РФ','_Регионы Роста','_Сильный','_Лидер','_Эффективный']},
+                {name:'BOPOS', path: '02.Мобильный_Бизнес', file:'Мобильный бизнес (BOPOS)', extension: '.xlsb', file_cluster:'BOPOS', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
+                {name:'DFIN', path: '02.Мобильный_Бизнес', file:'Мобильный бизнес (DFIN)', extension: '.xlsb', file_cluster:'DFIN', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
+                {name:'FIX', path: '03.Фиксированный_Бизнес', file:'FIX_FIB', extension: '.xlsb', file_cluster:'03.FIX_FIB', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
+                {name:'WEEK', path: '12.Еженедельный_отчет', file:'Week_КЦ_', extension: '.xlsb', file_cluster:'Week_КЦ', prefix:['_РФ','_Регионы Роста','_Сильный','_Лидер','_Эффективный']},
+                {name:'BOPOS', path: '02.Мобильный_Бизнес', file:'Мобильный бизнес (BOPOS)', extension: '.xlsb', file_cluster:'BOPOS', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
+                {name:'DFIN', path: '02.Мобильный_Бизнес', file:'Мобильный бизнес (DFIN)', extension: '.xlsb', file_cluster:'DFIN', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
+                {name:'FIX', path: '03.Фиксированный_Бизнес', file:'FIX_FIB', extension: '.xlsb', file_cluster:'03.FIX_FIB', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
+                {name:'WEEK', path: '12.Еженедельный_отчет', file:'Week_КЦ_', extension: '.xlsb', file_cluster:'Week_КЦ', prefix:['_РФ','_Регионы Роста','_Сильный','_Лидер','_Эффективный']},
+                {name:'BOPOS', path: '02.Мобильный_Бизнес', file:'Мобильный бизнес (BOPOS)', extension: '.xlsb', file_cluster:'BOPOS', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
+                {name:'DFIN', path: '02.Мобильный_Бизнес', file:'Мобильный бизнес (DFIN)', extension: '.xlsb', file_cluster:'DFIN', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
+                {name:'FIX', path: '03.Фиксированный_Бизнес', file:'FIX_FIB', extension: '.xlsb', file_cluster:'03.FIX_FIB', prefix:['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ']},
+                {name:'WEEK', path: '12.Еженедельный_отчет', file:'Week_КЦ_', extension: '.xlsb', file_cluster:'Week_КЦ', prefix:['_РФ','_Регионы Роста','_Сильный','_Лидер','_Эффективный']}
             ],
             FilterRegion: '',
             FilterCluster: 0,
@@ -129,30 +142,18 @@ new Vue({
             sortAsc: false,
             //---------------Added---------------//
             list_reports: [
-                { report_name: 'Еженедельный отчет WEEK', report_description: 'Оперативный отчет с основными показателями мобильного и фиксированного бизнеса', iclass: 'fa fa-bolt fa-3x',id: 0, business_filter: 'b2b', period_filter: 'Неделя', rating_filter: 1},
-                { report_name: 'Mобильный бизнес BOPOS', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 1, business_filter: 'b2b', period_filter: 'Месяц', rating_filter: 2},
-                { report_name: 'Mобильный бизнес DFIN', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 2, business_filter: 'b2b', period_filter: 'Месяц', rating_filter: 3},
-                { report_name: 'Фиксированный бизнec FIB', report_description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', iclass: 'fa fa-phone fa-3x',id: 3, business_filter: 'b2b', period_filter: 'Месяц', rating_filter: 4},
-                { report_name: 'Еженедельный отчет WEEK', report_description: 'Оперативный отчет с основными показателями мобильного и фиксированного бизнеса', iclass: 'fa fa-bolt fa-3x',id: 4, business_filter: 'b2b', period_filter: 'Неделя', rating_filter: 5},
-                { report_name: 'Mобильный бизнес BOPOS', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 5, business_filter: 'b2b', period_filter: 'Месяц', rating_filter: 6},
-                { report_name: 'Mобильный бизнес DFIN', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 6, business_filter: 'b2b', period_filter: 'Месяц', rating_filter: 7},
-                { report_name: 'Фиксированный бизнec FIB', report_description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', iclass: 'fa fa-phone fa-3x',id: 7, business_filter: 'b2b', period_filter: 'Месяц', rating_filter: 6},
-                { report_name: 'Еженедельный отчет WEEK', report_description: 'Оперативный отчет с основными показателями мобильного и фиксированного бизнеса', iclass: 'fa fa-bolt fa-3x',id: 8, business_filter: 'b2b', period_filter: 'Неделя', rating_filter: 6},
-                { report_name: 'Mобильный бизнес BOPOS', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 9, business_filter: 'b2b', period_filter: 'Месяц', rating_filter: 7},
-                { report_name: 'Mобильный бизнес DFIN', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 10, business_filter: 'b2b', period_filter: 'Месяц', rating_filter: 8},
-                { report_name: 'Фиксированный бизнec FIB', report_description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', iclass: 'fa fa-phone fa-3x',id: 11, business_filter: 'b2b', period_filter: 'Месяц', rating_filter: 3},
-                { report_name: 'Еженедельный отчет WEEK', report_description: 'Оперативный отчет с основными показателями мобильного и фиксированного бизнеса', iclass: 'fa fa-bolt fa-3x',id: 12, business_filter: 'b2c', period_filter: 'Неделя', rating_filter: 2},
-                { report_name: 'Mобильный бизнес BOPOS', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 13, business_filter: 'b2c', period_filter: 'Месяц', rating_filter: 2},
-                { report_name: 'Mобильный бизнес DFIN', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 14, business_filter: 'b2c', period_filter: 'Месяц', rating_filter: 1},
-                { report_name: 'Фиксированный бизнec FIB', report_description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', iclass: 'fa fa-phone fa-3x',id: 15, business_filter: 'b2c', period_filter: 'Месяц', rating_filter: 1},
-                { report_name: 'Фиксированный бизнec FIB', report_description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', iclass: 'fa fa-phone fa-3x',id: 16, business_filter: 'b2g', period_filter: 'Год', rating_filter: 1}
+                { report_name: 'Еженедельный отчет WEEK', report_description: 'Оперативный отчет с основными показателями мобильного и фиксированного бизнеса', iclass: 'fa fa-bolt fa-3x',id: 0, business: 'b2b', period: 'Неделя', rating: 1, online: 'Online', url: 'google.com'},
+                { report_name: 'Mобильный бизнес BOPOS', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 1, business: 'b2b', period: 'Месяц', rating: 2, online: 'Offline', url: ''},
+                { report_name: 'Mобильный бизнес DFIN', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 2, business: 'b2b', period: 'Месяц', rating: 3, online: 'Online', url: 'github.com'},
+                { report_name: 'Фиксированный бизнec FIB', report_description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', iclass: 'fa fa-phone fa-3x',id: 3, business: 'b2b', period: 'Месяц', rating: 4, online: 'Offline', url: ''}
             ],
-            menus: { periods: false, business: false, rating: false, indicators: false },
+            menus: { period: false, business: false, rating: false, indicators: false , online: false},
             filters: {
-                periods: {},
+                period: {},
                 business: {},
                 rating: 0,
-                indicators: {}
+                indicators: {},
+                online: {}
             },
             dropdown: { height: 0 },
             rating: {min: 0, max:  10}
@@ -201,10 +202,10 @@ new Vue({
             } else {
                 return result.sort(function (a, b) {
                     return a.sort_id - b.sort_id;
-                });              
+                });
                 //return result.sort((a, b) => a.sort_id - b.sort_id );
                 //return result.sort((a, b) => ascDesc * a.region.localeCompare(b.region));
-            }           
+            }
         }
         //--------- added --------//
         ,
@@ -212,48 +213,69 @@ new Vue({
             return Object.keys(this.menus).reduce(($$, set, i) => (this.menus[set]) ? i : $$, -1)
         },
         list() {
-            let {periods, business} = this.activeFilters
-            if(!periods.length && !business.length) return this.list_reports
-            if((!periods.length && business.length) || (periods.length && !business.length)){
-                if(periods.length) {
-                    return this.list_reports.filter(
-                        function (filter) {
-                            if (periods.indexOf(filter.period_filter) !== -1) {
-                                return filter
-                            } else {
-                                return false
-                            }
-                        }
-                    )
-                } else {
-                    return this.list_reports.filter(
-                        function (filter) {
-                            if (business.indexOf(filter.business_filter) !== -1) {
-                                return filter
-                            } else {
-                                return false
-                            }
-                        }
-                    )
-                }
+            var counter_filters = 0
+            let { business , period , online} = this.activeFilters
+            var obj_filters = {business , period, online}
+            for (var n in obj_filters) {
+                (obj_filters[n].length !== 0) ? counter_filters += 1 : counter_filters = counter_filters
             }
-            if(periods.length && business.length){
-                return this.list_reports.filter(
-                    function (filter) {
-                        if (periods.indexOf(filter.period_filter) !== -1 && business.indexOf(filter.business_filter) !== -1) {
-                            return filter
-                        } else {
-                            return false
+
+            return this.list_reports.filter(function(e){
+                var counter_instance = 0
+                for (var m in obj_filters) {
+                    if (obj_filters[m].length !== 0) {
+                        if (obj_filters[m].indexOf(e[m]) !== -1){
+                            counter_instance += 1
                         }
                     }
-                )
-            }
+                }
+                if (counter_instance == counter_filters) {
+                    return e
+                } else {
+                    return false
+                }
+            })
+            // if((!period.length && business.length) || (period.length && !business.length)){
+            //     if(period.length) {
+            //         return this.list_reports.filter(
+            //             function (filter) {
+            //                 if (period.indexOf(filter.period_filter) !== -1) {
+            //                     return filter
+            //                 } else {
+            //                     return false
+            //                 }
+            //             }
+            //         )
+            //     } else {
+            //         return this.list_reports.filter(
+            //             function (filter) {
+            //                 if (business.indexOf(filter.business_filter) !== -1) {
+            //                     return filter
+            //                 } else {
+            //                     return false
+            //                 }
+            //             }
+            //         )
+            //     }
+            // }
+            // if(period.length && business.length){
+            //     return this.list_reports.filter(
+            //         function (filter) {
+            //             if (period.indexOf(filter.period_filter) !== -1 && business.indexOf(filter.business_filter) !== -1) {
+            //                 return filter
+            //             } else {
+            //                 return false
+            //             }
+            //         }
+            //     )
+            // }
         },
         activeFilters() {
-            let { periods, business} = this.filters
+            let { period, business, online} = this.filters
             return {
-                periods: Object.keys(periods).filter(c => periods[c]),
-                business: Object.keys(business).filter(c => business[c])
+                period: Object.keys(period).filter(c => period[c]),
+                business: Object.keys(business).filter(c => business[c]),
+                online: Object.keys(online).filter(c => online[c])
             }
         }
         //------------------------//
@@ -262,7 +284,7 @@ new Vue({
         InvertSort() {
             this.sortAsc = !this.sortAsc;
 
-            
+
         },
         ReturnClass(item,index) {
             let cl = "";
@@ -270,7 +292,7 @@ new Vue({
             let find_cluster = this.FilterCluster == item.cl_id || this.FilterCluster == 0;
             if (find_substtring && find_cluster) { cl = "finditem"; }
             else { cl = "nofinditem"; }
-            return cl + " cl_" + item.cl_id; 
+            return cl + " cl_" + item.cl_id;
         },
         SetClusterFilter (filter_id) {
             this.FilterCluster = filter_id;
@@ -353,7 +375,7 @@ new Vue({
         setMinRating() {
             var min = 100000000000000000000;
             for(var m in this.list_reports){
-                ( this.list_reports[m].rating_filter < min ) ? min = this.list_reports[m].rating_filter : min = min
+                ( this.list_reports[m].rating < min ) ? min = this.list_reports[m].rating : min = min
             }
             this.rating.min = min
         },
@@ -361,7 +383,7 @@ new Vue({
         setMaxRating() {
             var max = 0;
             for(var m in this.list_reports){
-                ( this.list_reports[m].rating_filter > max ) ? max = this.list_reports[m].rating_filter : max = max
+                ( this.list_reports[m].rating > max ) ? max = this.list_reports[m].rating : max = max
             }
             this.rating.max = max
         },
@@ -373,20 +395,27 @@ new Vue({
         //Находим уникальные значения из свойств-фильтров объекта list_reports и передаем их в качестве фильтров в объект filters//
         setUniqueProperties() {
             var business = []
-            var periods = []
+            var period = []
+            var online = []
             for(var p in this.list_reports){
-                business.push(this.list_reports[p].business_filter)
-                periods.push(this.list_reports[p].period_filter)
+                business.push(this.list_reports[p].business)
+                period.push(this.list_reports[p].period)
+                online.push(this.list_reports[p].online)
             }
             var business_unique = business.filter(this.onlyUnique)
-            var periods_unique = periods.filter(this.onlyUnique)
+            var period_unique = period.filter(this.onlyUnique)
+            var online_unique = online.filter(this.onlyUnique)
 
-            periods_unique.forEach(e=>{
-                this.$set(this.filters.periods, e, false)
+            period_unique.forEach(e=>{
+                this.$set(this.filters.period, e, false)
             })
 
             business_unique.forEach(e=>{
                 this.$set(this.filters.business, e, false)
+            })
+
+            online_unique.forEach(e=>{
+                this.$set(this.filters.online, e, false)
             })
         }
         //-----------------------------------//

@@ -1008,3 +1008,15 @@ inf {
     width: 200px;
     color: inherit;
 }
+
+.fix_logo {
+    display: block; position: relative; text-align: center; margin-bottom: 10px; height: 40px;
+}
+
+.fix_span_right {
+    float: right; z-index: -10; display: block; margin-left: 0; position: relative;
+}
+
+.fix_span_left {
+    float: left; z-index: -10; display: block; margin-left: 0; position: relative;
+}
