@@ -235,40 +235,6 @@ new Vue({
                     return false
                 }
             })
-            // if((!period.length && business.length) || (period.length && !business.length)){
-            //     if(period.length) {
-            //         return this.list_reports.filter(
-            //             function (filter) {
-            //                 if (period.indexOf(filter.period_filter) !== -1) {
-            //                     return filter
-            //                 } else {
-            //                     return false
-            //                 }
-            //             }
-            //         )
-            //     } else {
-            //         return this.list_reports.filter(
-            //             function (filter) {
-            //                 if (business.indexOf(filter.business_filter) !== -1) {
-            //                     return filter
-            //                 } else {
-            //                     return false
-            //                 }
-            //             }
-            //         )
-            //     }
-            // }
-            // if(period.length && business.length){
-            //     return this.list_reports.filter(
-            //         function (filter) {
-            //             if (period.indexOf(filter.period_filter) !== -1 && business.indexOf(filter.business_filter) !== -1) {
-            //                 return filter
-            //             } else {
-            //                 return false
-            //             }
-            //         }
-            //     )
-            // }
         },
         activeFilters() {
             let { period, business, online} = this.filters
