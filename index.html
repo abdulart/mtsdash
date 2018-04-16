@@ -175,7 +175,7 @@
                     <span class="label label-danger fix_span_right" v-if="report.online == 'Online'">Online</span>
                     <span class="label label-success fix_span_left" v-if="report.fresh == 'New'">New</span>
                     <icon class="report__logo fix_logo">
-                      <i v-bind:class="[report.iclass]" aria-hidden="true"></i>
+                      <i v-bind:class="[report.iclass]" aria-hidden="true" v-bind:style="{ color: report.facolor}"></i>
                     </icon>
                     <h2 class="report__name">{{report.report_name}}</h2>
                     <h2 class="report__description">{{report.report_description}}</h2>
@@ -402,11 +402,12 @@
   </script>
 
   <!-- Конец шаблона модального окна для выбора региона или кластера -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="js/vue.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/vue-smooth-scroll.min.js"></script>
-  <script src="js/script.js"></script>
+  <script type="text/babel" src="js/script.js"></script>
 
 </body>
 

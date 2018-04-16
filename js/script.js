@@ -142,10 +142,10 @@ new Vue({
             sortAsc: false,
             //---------------Added---------------//
             list_reports: [
-                { report_name: 'Еженедельный отчет WEEK', report_description: 'Оперативный отчет с основными показателями мобильного и фиксированного бизнеса', iclass: 'fa fa-bolt fa-3x',id: 0, business: 'b2b', period: 'Неделя', rating: 1, online: 'Online', url: 'google.com'},
-                { report_name: 'Mобильный бизнес BOPOS', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 1, business: 'b2b', period: 'Месяц', rating: 2, online: 'Offline', url: ''},
-                { report_name: 'Mобильный бизнес DFIN', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x',id: 2, business: 'b2b', period: 'Месяц', rating: 3, online: 'Online', url: 'github.com'},
-                { report_name: 'Фиксированный бизнec FIB', report_description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', iclass: 'fa fa-phone fa-3x',id: 3, business: 'b2b', period: 'Месяц', rating: 4, online: 'Offline', url: ''}
+                { report_name: 'Еженедельный отчет WEEK', report_description: 'Оперативный отчет с основными показателями мобильного и фиксированного бизнеса', iclass: 'fa fa-bolt fa-3x', facolor: '#555', id: 0, business: 'b2b', period: 'Неделя', rating: 1, online: 'Online', url: 'google.com'},
+                { report_name: 'Mобильный бизнес BOPOS', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x', facolor: '#555', id: 1, business: 'b2b', period: 'Месяц', rating: 2, online: 'Offline', url: ''},
+                { report_name: 'Mобильный бизнес DFIN', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x', facolor: '#555', id: 2, business: 'b2b', period: 'Месяц', rating: 3, online: 'Online', url: 'github.com'},
+                { report_name: 'Фиксированный бизнec FIB', report_description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', iclass: 'fa fa-phone fa-3x', facolor: '#555', id: 3, business: 'b2b', period: 'Месяц', rating: 4, online: 'Offline', url: ''}
             ],
             menus: { period: false, business: false, rating: false, indicators: false , online: false},
             filters: {
