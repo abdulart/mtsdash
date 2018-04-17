@@ -332,7 +332,7 @@
         <div class="wrap">
           <transition-group name="flip-list" tag="ul">
             <li @click="ClickRegion(item.region)" @mouseover="SetActiveIndexRegion(index)" @mouseleave="ClearActiveIndexRegion" :class="ReturnClass(item,index)"
-              v-for="(item, index) in filteredAndSortedData.slice(5)" :key="item.reg_id" :item="item">
+              v-for="(item, index) in filteredAndSortedData.slice(11)" :key="item.reg_id" :item="item">
               {{item.region}}
             </li>
           </transition-group>
