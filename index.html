@@ -167,7 +167,7 @@
             </transition-group>
           </div>
           <transition-group name="company" tag="div">
-            <div class="col-md-3 col-sm-4 report__list" v-for="report in list" v-bind:key="report.id" v-if="report.rating >= filters.rating">
+            <div class="col-md-3 col-sm-4 report__list" v-for="report in list_reports" v-bind:key="report.id" v-if="report.rating >= filters.rating">
               <ul cldis="report__list" class="pdd_fix">
                 <li class="report">
 
