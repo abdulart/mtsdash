@@ -36,12 +36,12 @@ new Vue({
                 {region:'Кластер «Сильный»', cluster: '', mr:'', reg_id:2, cl_id:0, sort_id:2, ter_id: 0, folder: 'Отчетность по Кластеру', path:'Кластер_Сильный'},
                 {region:'Кластер «Лидер»', cluster: '', mr:'', reg_id:3, cl_id:0, sort_id:3, ter_id: 0, folder: 'Отчетность по Кластеру', path:'Кластер_Лидер'},
                 {region:'Кластер «Эффективный»', cluster: '', mr:'', reg_id:4, cl_id:0, sort_id:4, ter_id: 0, folder: 'Отчетность по Кластеру', path:'Кластер_Эффективный'},
-                {region:'Территория Крупные', cluster: '', mr:'', reg_id:5, cl_id:0, sort_id:5, ter_id: 0, folder: 'Отчетность Территории', path:'Кластер_Регионы роста'},
-                {region:'Территория Лидер', cluster: '', mr:'', reg_id:6, cl_id:0, sort_id:6, ter_id: 0, folder: 'Отчетность Территории', path:'Кластер_Сильный'},
-                {region:'Территория Роста', cluster: '', mr:'', reg_id:7, cl_id:0, sort_id:7, ter_id: 0, folder: 'Отчетность Территории', path:'Кластер_Лидер'},
-                {region:'Территория Сильный', cluster: '', mr:'', reg_id:8, cl_id:0, sort_id:8, ter_id: 0, folder: 'Отчетность Территории', path:'Кластер_Эффективный'},
-                {region:'Территория ТОП', cluster: '', mr:'', reg_id:9, cl_id:0, sort_id:9, ter_id: 0, folder: 'Отчетность Территории', path:'Кластер_Лидер'},
-                {region:'Территория Эффективный»', cluster: '', mr:'', reg_id:10, cl_id:0, sort_id:10, ter_id: 0, folder: 'Отчетность Территории', path:'Кластер_Эффективный'},
+                {region:'Территория Крупные', cluster: '', mr:'', reg_id:5, cl_id:0, sort_id:5, ter_id: 0, folder: 'Отчетность Территории', path:'Тер_КРУПНЫЕ'},
+                {region:'Территория Лидер', cluster: '', mr:'', reg_id:6, cl_id:0, sort_id:6, ter_id: 0, folder: 'Отчетность Территории', path:'Тер_ЛИДЕР'},
+                {region:'Территория Роста', cluster: '', mr:'', reg_id:7, cl_id:0, sort_id:7, ter_id: 0, folder: 'Отчетность Территории', path:'Тер_РОСТА'},
+                {region:'Территория Сильный', cluster: '', mr:'', reg_id:8, cl_id:0, sort_id:8, ter_id: 0, folder: 'Отчетность Территории', path:'Тер_СИЛЬНЫЙ'},
+                {region:'Территория ТОП', cluster: '', mr:'', reg_id:9, cl_id:0, sort_id:9, ter_id: 0, folder: 'Отчетность Территории', path:'Тер_ТОП'},
+                {region:'Территория Эффективный»', cluster: '', mr:'', reg_id:10, cl_id:0, sort_id:10, ter_id: 0, folder: 'Отчетность Территории', path:'Тер_ЭФФЕКТИВНЫЙ'},
                 {region:'Алтайский край', cluster: 'Растущий', territory: 'Тер_РОСТА', mr:'МР Сибирь', reg_id:11, cl_id:2, sort_id:31, ter_id: 3, folder: 'Отчетность Регионы', path:'Алтайский край'},
                 {region:'Амурская область', cluster: 'Сильный', territory: 'Тер_СИЛЬНЫЙ', mr:'МР Дальний Восток', reg_id:12, cl_id:3, sort_id:48, ter_id: 4, folder: 'Отчетность Регионы', path:'Амурская область'},
                 {region:'Архангельская область', cluster: 'Лидер', territory: 'Тер_ЛИДЕР', mr:'МР Северо-Запад', reg_id:13, cl_id:4, sort_id:11, ter_id: 2, folder: 'Отчетность Регионы', path:'Архангельская область'},
@@ -148,21 +148,19 @@ new Vue({
             showModal: false,
             showCluster: true,
             sortAsc: false,
+            StatusButton: 'Cluster',
             //---------------Added---------------//
             list_reports: [
-                {id: 0, name: 'ИНН и Контракты', basic_folder: '09.ИНН', file_name: 'con_inn_Report', year: '', month: '', file_extension: '.xlsm', file_postfix: 0, rating: 10},
-                {id: 1, name: 'Миграции B2B', basic_folder: '11.Миграции', file_name: 'Migration_report', year: '', month: '', file_extension: '.xlsx', file_postfix: 0, rating: 10},
-                {id: 2, name: 'Модель RN и RL', basic_folder: '06.RN_RL_model', file_name: 'RN_Model', year: '_2018', month: '', file_extension: '.xlsb', file_postfix: ['_РФ','_Регионы Роста','_Сильный','_Лидер','_Эффективный'], rating: 8},
-                {id: 3, name: 'MNP B2B', basic_folder: '15.MNP', file_name: 'MNP_B2B', year: '_2018', month: '', file_extension: '.xlsb', file_postfix: 0, rating: 4},
-                {id: 4, name: 'MNP B2B (Детальный)', basic_folder: '15.MNP/MNP_B2B_DETAL', file_name: 'MNP_B2B_DETAL', year: '', month: '', file_extension: '.xlsb', file_postfix: ['','_Регионы Роста','_Сильный','_Лидер','_Эффективный'], rating: 7},
-                {id: 5, name: 'Дебиторская задолжность', basic_folder: '17.ДЗ', file_name: 'DEBT', year: '_2018', month: '03', file_extension: '.xlsx', file_postfix: 0, rating: 3},
-                {id: 6, name: 'Абонентское оборудование', basic_folder: '27.Абонентское_оборудование', file_name: 'АО', year: '', month: '', file_extension: '.xlsb', file_postfix: 0, rating: 3},
-                {id: 7, name: 'Эффективность продаж B2B', basic_folder: '31. Эффективность сотурдников продаж', file_name: 'Эффективность v3', year: '', month: '', file_extension: '.xlsx', file_postfix: 0, rating: 3},
-                // {id: 8, name: 'Еженедельный MOB (детализированный)', basic_folder: '31. Эффективность сотурдников продаж', file_name: 'Эффективность v3', year: '', month: '', file_extension: '.xlsx', file_postfix: 0, rating: 3}
-                // { report_name: 'Еженедельный отчет WEEK', report_description: 'Оперативный отчет с основными показателями мобильного и фиксированного бизнеса', iclass: 'fa fa-bolt fa-3x', facolor: '#555', id: 0, business: 'b2b', period: 'Неделя', rating: 1, online: 'Online', url: 'google.com'},
-                // { report_name: 'Mобильный бизнес BOPOS', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x', facolor: '#555', id: 1, business: 'b2b', period: 'Месяц', rating: 2, online: 'Offline', url: ''},
-                // { report_name: 'Mобильный бизнес DFIN', report_description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', iclass: 'fa fa-mobile fa-3x', facolor: '#555', id: 2, business: 'b2b', period: 'Месяц', rating: 3, online: 'Online', url: 'github.com'},
-                // { report_name: 'Фиксированный бизнec FIB', report_description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', iclass: 'fa fa-phone fa-3x', facolor: '#555', id: 3, business: 'b2b', period: 'Месяц', rating: 4, online: 'Offline', url: ''}
+                {id: 0, name: 'ИНН и Контракты', period: 'Месяц', business: 'B2B', iclass: 'fa fa-user-o fa-3x', description: 'Отчет B2B, который содержит абонентскую базу(ПО), контракты, ИНН мобильного и фиксированного бизнеса в разрезе сегменов', basic_folder: '09.ИНН', file_name: 'con_inn_Report', year: '', month: '', file_extension: '.xlsm', file_postfix: 0, rating: 10},
+                {id: 1, name: 'Миграции B2B', period: 'Месяц', business: 'B2B', iclass: 'fa fa-exchange fa-3x', description: 'Отчет по миграциям B2B между сегментами массового и корпоративного рынка в доходах и абонентах', basic_folder: '11.Миграции', file_name: 'Migration_report', year: '', month: '', file_extension: '.xlsx', file_postfix: 0, rating: 10},
+                {id: 2, name: 'Модель RN и RL', period: 'Месяц', business: 'B2B', iclass: 'fa fa-group fa-3x', description: 'Отчет содержит динамику новых доходов (RN) и упущенных доходов (RL) в разрезе терифных планов, сегментов и подсегментов B2B', basic_folder: '06.RN_RL_model', file_name: 'RN_Model', year: '_2018', month: '', file_extension: '.xlsb', file_postfix: ['_РФ','_Регионы Роста','_Сильный','_Лидер','_Эффективный'], rating: 8},
+                {id: 3, name: 'MNP B2B', period: 'Месяц', business: 'B2B', iclass: 'fa fa-bar-chart fa-3x', description: 'Отчет показывает отток и приток абонентов и доходов B2B в результате MNP (Смена оператора с сохранением номера)', basic_folder: '15.MNP', file_name: 'MNP_B2B', year: '_2018', month: '', file_extension: '.xlsb', file_postfix: 0, rating: 4},
+                {id: 4, name: 'MNP B2B (Детальный)', period: 'Месяц', business: 'B2B', iclass: 'fa fa-search-plus fa-3x', description: 'Детальная выгрузка показывает отток и приток абонентов и доходов B2B в результате MNP (Смена оператора с сохранением номера)', basic_folder: '15.MNP/MNP_B2B_DETAL', file_name: 'MNP_B2B_DETAL', year: '', month: '', file_extension: '.xlsb', file_postfix: ['','_Регионы Роста','_Сильный','_Лидер','_Эффективный'], rating: 7},
+                {id: 5, name: 'Дебиторская задолжность', period: 'Месяц', business: 'B2B', iclass: 'fa fa-thumb-tack fa-3x', description: 'Динамика и структура дебиторской задолжности в сегментах корпоративного рынка для мобильного и фиксированного бизнеса', basic_folder: '17.ДЗ', file_name: 'DEBT', year: '_2018', month: '03', file_extension: '.xlsx', file_postfix: 0, rating: 3},
+                {id: 6, name: 'Абонентское оборудование', period: 'Месяц', business: 'B2B', iclass: 'fa fa-fax fa-3x', description: 'Распределение доходов, абонентской базы B2B и B2C по оборудованию, стандарту связи, OS', basic_folder: '27.Абонентское_оборудование', file_name: 'АО', year: '', month: '', file_extension: '.xlsb', file_postfix: 0, rating: 3},
+                {id: 7, name: 'Эффективность продаж B2B', period: 'Месяц', business: 'B2B', iclass: 'fa fa-line-chart fa-3x', description: 'Отчет эффективности сотрудников продаж B2B', basic_folder: '31. Эффективность сотурдников продаж', file_name: 'Эффективность v3', year: '', month: '', file_extension: '.xlsx', file_postfix: 0, rating: 3},
+                {id: 8, name: 'Еженедельный MOB (детализированный)', period: 'Неделя', business: 'B2B', iclass: 'fa fa-mobile-phone fa-3x', description: 'Отчет с основными бизнес-показателями мобильного бизнеса B2B с детализацией до каналов продаж, отделов и сотрудников', basic_folder: 'WD', file_name: 'WD', year: '_2018', month: '04', file_extension: '.xlsb', file_postfix: ['','','','','','_Тер_КРУПНЫЕ','_Тер_ЛИДЕР','_Тер_РОСТА','_Тер_СИЛЬНЫЙ','Тер_ТОП','Тер_ЭФФЕКТИВНЫЙ'], rating: 3},
+                {id: 9, name: 'Еженедельный FIX (детализированный)', period: 'Неделя', business: 'B2B', iclass: 'fa fa-phone fa-3x', description: 'Отчет с основными бизнес-показателями фиксированого бизнеса B2B с детализацией до каналов продаж, отделов и сотрудников', basic_folder: 'WD', file_name: 'WD_FIX', year: '_2018', month: '04', file_extension: '.xlsx', file_postfix: ['','','','','','_Тер_КРУПНЫЕ','_Тер_ЛИДЕР','_Тер_РОСТА','_Тер_СИЛЬНЫЙ','Тер_ТОП','Тер_ЭФФЕКТИВНЫЙ'], rating: 3}
             ],
             menus: { period: false, business: false, rating: false, indicators: false , online: false},
             filters: {
@@ -234,8 +232,8 @@ new Vue({
         },
         list() {
             var counter_filters = 0
-            let { business , period , online} = this.activeFilters
-            var obj_filters = {business , period, online}
+            let { business , period } = this.activeFilters
+            var obj_filters = {business , period}
             for (var n in obj_filters) {
                 (obj_filters[n].length !== 0) ? counter_filters += 1 : counter_filters = counter_filters
             }
@@ -257,11 +255,11 @@ new Vue({
             })
         },
         activeFilters() {
-            let { period, business, online} = this.filters
+            let { period, business} = this.filters
             return {
                 period: Object.keys(period).filter(c => period[c]),
                 business: Object.keys(business).filter(c => business[c]),
-                online: Object.keys(online).filter(c => online[c])
+                // online: Object.keys(online).filter(c => online[c])
             }
         }
         //------------------------//
@@ -321,6 +319,8 @@ new Vue({
                             basicurl = domen + this.RegionData[reg_id].folder + '/' + this.list_reports[rep_id].basic_folder + '/' + this.list_reports[rep_id].file_name + this.list_reports[rep_id].year + this.list_reports[rep_id].month + this.list_reports[rep_id].file_extension
                         } else if (reg_id > 0 && reg_id < 5) {
                             basicurl = domen + this.RegionData[reg_id].folder + '/' + this.RegionData[reg_id].path + '/' + this.list_reports[rep_id].basic_folder + '/' + this.list_reports[rep_id].file_name + this.list_reports[rep_id].year + this.list_reports[rep_id].month + this.list_reports[rep_id].file_extension
+                        } else if (reg_id >= 5 && reg_id < 11) {
+                            basicurl = domen + this.RegionData[reg_id].folder + '/' + this.RegionData[reg_id].path + '/' + this.list_reports[rep_id].basic_folder + '/' + this.list_reports[rep_id].file_name + this.list_reports[rep_id].year + this.list_reports[rep_id].month + this.list_reports[rep_id].file_extension
                         } else {
                             basicurl = domen + this.RegionData[reg_id].folder + '/' + this.RegionData[reg_id].path + '/' + this.list_reports[rep_id].basic_folder + '/' + this.list_reports[rep_id].file_name + this.list_reports[rep_id].year + this.list_reports[rep_id].month + this.list_reports[rep_id].file_extension
                         }
@@ -328,6 +328,8 @@ new Vue({
                         if (reg_id == 0) {
                             basicurl = domen + this.RegionData[reg_id].folder + '/' + this.list_reports[rep_id].basic_folder + '/' + this.list_reports[rep_id].file_name + this.list_reports[rep_id].file_postfix[reg_id] + this.list_reports[rep_id].year + this.list_reports[rep_id].month + this.list_reports[rep_id].file_extension
                         } else if (reg_id > 0 && reg_id < 5) {
+                            basicurl = domen + this.RegionData[reg_id].folder + '/' + this.RegionData[reg_id].path + '/' + this.list_reports[rep_id].basic_folder + '/' + this.list_reports[rep_id].file_name + this.list_reports[rep_id].file_postfix[reg_id] + this.list_reports[rep_id].year + this.list_reports[rep_id].month + this.list_reports[rep_id].file_extension
+                        } else if (reg_id >= 5 && reg_id < 11) {
                             basicurl = domen + this.RegionData[reg_id].folder + '/' + this.RegionData[reg_id].path + '/' + this.list_reports[rep_id].basic_folder + '/' + this.list_reports[rep_id].file_name + this.list_reports[rep_id].file_postfix[reg_id] + this.list_reports[rep_id].year + this.list_reports[rep_id].month + this.list_reports[rep_id].file_extension
                         } else {
                             basicurl = domen + this.RegionData[reg_id].folder + '/' + this.RegionData[reg_id].path + '/' + this.list_reports[rep_id].basic_folder + '/' + this.list_reports[rep_id].file_name + '_' + this.RegionData[reg_id].path + this.list_reports[rep_id].year + this.list_reports[rep_id].month + this.list_reports[rep_id].file_extension
@@ -395,15 +397,15 @@ new Vue({
         setUniqueProperties() {
             var business = []
             var period = []
-            var online = []
+            // var online = []
             for(var p in this.list_reports){
                 business.push(this.list_reports[p].business)
                 period.push(this.list_reports[p].period)
-                online.push(this.list_reports[p].online)
+                // online.push(this.list_reports[p].online)
             }
             var business_unique = business.filter(this.onlyUnique)
             var period_unique = period.filter(this.onlyUnique)
-            var online_unique = online.filter(this.onlyUnique)
+            // var online_unique = online.filter(this.onlyUnique)
 
             period_unique.forEach(e=>{
                 this.$set(this.filters.period, e, false)
@@ -413,9 +415,9 @@ new Vue({
                 this.$set(this.filters.business, e, false)
             })
 
-            online_unique.forEach(e=>{
-                this.$set(this.filters.online, e, false)
-            })
+            // online_unique.forEach(e=>{
+            //     this.$set(this.filters.online, e, false)
+            // })
         }
         //-----------------------------------//
     },

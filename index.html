@@ -14,7 +14,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon-16x16.png">
   <link rel="manifest" href="./img/favicons/manifest.json">
   <link rel="mask-icon" href="./img/favicons/safari-pinned-tab.svg" color="#d66565">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
   <meta name="apple-mobile-web-app-title" content="MTC Dashboard">
   <meta name="application-name" content="MTC Dashboard">
   <meta name="theme-color" content="#ffffff">
@@ -167,18 +166,18 @@
             </transition-group>
           </div>
           <transition-group name="company" tag="div">
-            <div class="col-md-3 col-sm-4 report__list" v-for="report in list_reports" v-bind:key="report.id" v-if="report.rating >= filters.rating">
+            <div class="col-md-3 col-sm-4 report__list" v-for="report in list" v-bind:key="report.id" v-if="report.rating >= filters.rating">
               <ul cldis="report__list" class="pdd_fix">
                 <li class="report">
 
                   <div class="report__info">
-                    <span class="label label-danger fix_span_right" v-if="report.online == 'Online'">Online</span>
-                    <span class="label label-success fix_span_left" v-if="report.fresh == 'New'">New</span>
-                    <icon class="report__logo fix_logo">
+                    <!--<span class="label label-danger fix_span_right" v-if="report.online == 'Online'">Online</span>
+                    <span class="label label-success fix_span_left" v-if="report.fresh == 'New'">New</span>-->
+                    <icon class="report__logo">
                       <i v-bind:class="[report.iclass]" aria-hidden="true" v-bind:style="{ color: report.facolor}"></i>
                     </icon>
-                    <h2 class="report__name">{{report.report_name}}</h2>
-                    <h2 class="report__description">{{report.report_description}}</h2>
+                    <h2 class="report__name">{{report.name}}</h2>
+                    <h2 class="report__description">{{report.description}}</h2>
                     <br>
                     <button @click="OpenReport(report.id)" class="btn_report">СКАЧАТЬ</button>
                   </div>
@@ -306,23 +305,41 @@
 
           <!-- Форма поиска с значком -->
 
-          <input class="input_form" type="text" v-model="FilterRegion" v-on:focus="showCluster = false" v-on:blur="showCluster = true"
-            placeholder="" />
+          <input class="input_form" type="text" v-model="FilterRegion" v-on:focus="StatusButton = 'None'" v-on:blur="StatusButton = 'Cluster'"
+                 placeholder="" />
           <i id="filtersubmit" class="fa fa-search"></i>
 
-          <button class="btn_sort" @click="InvertSort()">
+          <button class="btn_sort leftx" @click="InvertSort()">
             <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
           </button>
 
+          <button class="btn_sort" @click="StatusButton === 'Cluster' ? StatusButton = 'Territory' : StatusButton = 'Cluster'">
+            <i class="fa fa-street-view fa-lg" aria-hidden="true"></i>
+          </button>
+
           <!-- Кнопки кластеров (начало) -->
-          <transition name="slide-fade">
-            <div v-if="showCluster" class="inline">
-              <button class="btn" @click="ClickRegion(RegionData[0].region)">Россия</button>
-              <button class="btn" @click="ClickRegion(RegionData[1].region)" @mouseover="SetClusterFilter(2)" @mouseleave="SetClusterFilter(0)">Растущий</button>
-              <button class="btn" @click="ClickRegion(RegionData[2].region)" @mouseover="SetClusterFilter(3)" @mouseleave="SetClusterFilter(0)">Сильный</button>
-              <button class="btn" @click="ClickRegion(RegionData[3].region)" @mouseover="SetClusterFilter(4)" @mouseleave="SetClusterFilter(0)">Лидер</button>
-              <button class="btn" @click="ClickRegion(RegionData[4].region)" @mouseover="SetClusterFilter(5)" @mouseleave="SetClusterFilter(0)">Эффективный</button>
+          <transition name="cluster_groups">
+
+            <div v-if="StatusButton === 'Cluster'" class="inline" >
+              <!--<button class="btn wide" @click="StatusButton = 'Territory'">Россия</button>-->
+              <button class="btn wide" @click="ClickRegion(RegionData[0].region)" @mouseover="SetClusterFilter(0)" @mouseleave="SetClusterFilter(0)">Россия</button>
+              <button class="btn wide" @click="ClickRegion(RegionData[1].region)" @mouseover="SetClusterFilter(2)" @mouseleave="SetClusterFilter(0)">Кл.Растущий</button>
+              <button class="btn wide" @click="ClickRegion(RegionData[2].region)" @mouseover="SetClusterFilter(3)" @mouseleave="SetClusterFilter(0)">Кл.Сильный</button>
+              <button class="btn wide" @click="ClickRegion(RegionData[3].region)" @mouseover="SetClusterFilter(4)" @mouseleave="SetClusterFilter(0)">Кл.Лидер</button>
+              <button class="btn wide" @click="ClickRegion(RegionData[4].region)" @mouseover="SetClusterFilter(5)" @mouseleave="SetClusterFilter(0)">Кл.Эффективный</button>
             </div>
+
+            <div v-else class="inline" >
+              <button class="btn narrow" @click="StatusButton = 'Cluster'">Тер.Топ</button>
+              <button class="btn narrow" @click="ClickRegion(RegionData[5].region)" @mouseover="SetClusterFilter(6)" @mouseleave="SetClusterFilter(0)">Тер.Крупные</button>
+              <button class="btn narrow" @click="ClickRegion(RegionData[6].region)" @mouseover="SetClusterFilter(7)" @mouseleave="SetClusterFilter(0)">Тер.Лидер</button>
+              <button class="btn narrow" @click="ClickRegion(RegionData[7].region)" @mouseover="SetClusterFilter(8)" @mouseleave="SetClusterFilter(0)">Тер.Роста</button>
+              <button class="btn narrow" @click="ClickRegion(RegionData[8].region)" @mouseover="SetClusterFilter(9)" @mouseleave="SetClusterFilter(0)">Тер.Сильный</button>
+              <button class="btn narrow" @click="ClickRegion(RegionData[9].region)" @mouseover="SetClusterFilter(10)" @mouseleave="SetClusterFilter(0)">Тер.ТОП</button>
+              <button class="btn narrow" @click="ClickRegion(RegionData[10].region)" @mouseover="SetClusterFilter(11)" @mouseleave="SetClusterFilter(0)">Тер.Эффект.</button>
+              <!--<button class="btn narrow" @click="ClickRegion(RegionData[4].region)" @mouseover="SetClusterFilter(5)" @mouseleave="SetClusterFilter(0)">Эффективный</button>-->
+            </div>
+
           </transition>
           <!-- Кнопки кластеров (конец) -->
 
@@ -332,7 +349,7 @@
         <div class="wrap">
           <transition-group name="flip-list" tag="ul">
             <li @click="ClickRegion(item.region)" @mouseover="SetActiveIndexRegion(index)" @mouseleave="ClearActiveIndexRegion" :class="ReturnClass(item,index)"
-              v-for="(item, index) in filteredAndSortedData.slice(11)" :key="item.reg_id" :item="item">
+                v-for="(item, index) in filteredAndSortedData.slice(11)" :key="item.reg_id" :item="item">
               {{item.region}}
             </li>
           </transition-group>
