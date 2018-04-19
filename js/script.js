@@ -2,6 +2,10 @@
 
 var STORAGE_KEY = 'mts-dash-region-P7oZi9sL'
 
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
+
 Vue.component('modal', {
     template: '#modal-template'
 })
@@ -17,7 +21,7 @@ var RegionStorage = {
   }
 };
 
-Array.prototype.contains = function(array) {
+Array.prototype.contains = function (array) {
     return array.some(function(item) {
         return this.indexOf(item) !== -1;
     }, this);
@@ -155,35 +159,36 @@ new Vue({
             showCluster: true,
             sortAsc: false,
             StatusButton: 'Cluster',
-            regType: -1,
             //---------------Added---------------//
             list_reports: [
-                {id: 0, name: 'ИНН и Контракты', indicators: ['Абоненты', 'Контракты', 'ИНН'], aggregation: ['РФ', 'Кластеры', 'Регионы'], available: [true,true,false,true], detail_level: 'Регион [Level 3]', update_date: 'now', update_type: 'Кумулятивное', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-user-o fa-3x', description: 'Отчет B2B, который содержит абонентскую базу(ПО), контракты, ИНН мобильного и фиксированного бизнеса в разрезе сегменов', basic_folder: '09.ИНН', file_name: 'con_inn_Report', year: '', month: '', file_extension: '.xlsm', file_postfix: 0, rating: 10, online: 'Offline'},
-                {id: 1, name: 'Миграции B2B', indicators: ['Миграции'], aggregation: ['РФ', 'Регионы'], available: [true,false,false,true], detail_level: 'Регион [Level 3]', update_date: 'now', update_type: 'Кумулятивное', update_period: 'Месяц', main_user: 'Иванова Светлана Николаевна', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-exchange fa-3x', description: 'Отчет по миграциям B2B между сегментами массового и корпоративного рынка в доходах и абонентах', basic_folder: '11.Миграции', file_name: 'Migration_report', year: '', month: '', file_extension: '.xlsx', file_postfix: 0, rating: 10, online: 'Offline'},
-                {id: 2, name: 'Модель RN и RL', indicators: ['RN', 'RL'], aggregation: ['РФ', 'Кластеры', 'Регионы'], available: [true,true,false,true], detail_level: 'Регион [Level 3]', update_date: 'now', update_type: 'Кумулятивнoe', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-group fa-3x', description: 'Отчет содержит динамику новых доходов (RN) и упущенных доходов (RL) в разрезе терифных планов, сегментов и подсегментов B2B', basic_folder: '06.RN_RL_model', file_name: 'RN_Model', year: '_2018', month: '', file_extension: '.xlsb', file_postfix: ['_РФ','_Регионы Роста','_Сильный','_Лидер','_Эффективный'], rating: 8, online: 'Offline'},
-                {id: 3, name: 'MNP B2B', indicators: ['MNP'], aggregation: ['РФ', 'Кластеры', 'Регионы'], available: [true,true,false,true], detail_level: 'Регион [Level 3]', update_date: 'now', update_type: 'Кумулятивнoe', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-bar-chart fa-3x', description: 'Отчет показывает отток и приток абонентов и доходов B2B в результате MNP (Смена оператора с сохранением номера)', basic_folder: '15.MNP', file_name: 'MNP_B2B', year: '_2018', month: '', file_extension: '.xlsb', file_postfix: 0, rating: 4, online: 'Offline'},
-                {id: 4, name: 'MNP B2B (Детальный)', indicators: ['MNP'], aggregation: ['РФ', 'Кластеры', 'Регионы'], available: [true,true,false,true], detail_level: 'Регион [Level 3]', update_date: 'now', update_type: 'Кумулятивнoe', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Выгрузка', period: 'Месяц', business: 'B2B', iclass: 'fa fa-search-plus fa-3x', description: 'Детальная выгрузка показывает отток и приток абонентов и доходов B2B в результате MNP (Смена оператора с сохранением номера)', basic_folder: '15.MNP/MNP_B2B_DETAL', file_name: 'MNP_B2B_DETAL', year: '', month: '', file_extension: '.xlsb', file_postfix: ['','_Регионы Роста','_Сильный','_Лидер','_Эффективный'], rating: 7, online: 'Offline'},
-                {id: 5, name: 'Дебиторская задолжность', indicators: ['Дебиторская задолжность'], aggregation: ['РФ', 'Кластеры', 'Регионы'], available: [true,true,false,true], detail_level: 'Регион [Level 3]', update_date: 'now', update_type: 'Версионное', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-thumb-tack fa-3x', description: 'Динамика и структура дебиторской задолжности в сегментах корпоративного рынка для мобильного и фиксированного бизнеса', basic_folder: '17.ДЗ', file_name: 'DEBT', year: '_2018', month: '03', file_extension: '.xlsx', file_postfix: 0, rating: 3, online: 'Offline'},
-                {id: 6, name: 'Абонентское оборудование', indicators: ['Оборудование'], aggregation: ['Регионы'], available: [false,false,false,true], detail_level: 'Регион [Level 3]', update_date: 'now', update_type: 'Кумулятивнoe', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-fax fa-3x', description: 'Распределение доходов, абонентской базы B2B и B2C по оборудованию, стандарту связи, OS', basic_folder: '27.Абонентское_оборудование', file_name: 'АО', year: '', month: '', file_extension: '.xlsb', file_postfix: 0, rating: 3, online: 'Offline'},
-                {id: 7, name: 'Эффективность продаж B2B', indicators: ['Эффективность'], aggregation: ['РФ'], available: [true,false,false,false], detail_level: 'Сотрудник [Level 1]', update_date: 'now', update_type: 'Кумулятивнoe', update_period: 'Квартал', main_user: 'Тараканов Александр', dash: '', report_format: 'Электронная таблица', period: 'Квартал', business: 'B2B', iclass: 'fa fa-line-chart fa-3x', description: 'Отчет эффективности сотрудников продаж B2B', basic_folder: '31. Эффективность сотурдников продаж', file_name: 'Эффективность v3', year: '', month: '', file_extension: '.xlsx', file_postfix: 0, rating: 3, online: 'Offline'},
-                {id: 8, name: 'Еженедельный MOB (детализированный)', indicators: ['Портфель', 'RN', 'RL'], aggregation: ['Территории'], available: [false,false,true,false], detail_level: 'Сотрудник [Level 1]', update_date: 'now', update_type: 'Версионное', update_period: 'Неделя', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Неделя', business: 'B2B', iclass: 'fa fa-mobile-phone fa-3x', description: 'Отчет с основными бизнес-показателями мобильного бизнеса B2B с детализацией до каналов продаж, отделов и сотрудников', basic_folder: 'WD', file_name: 'WD', year: '_2018', month: '04', file_extension: '.xlsb', file_postfix: ['','','','','','_Тер_КРУПНЫЕ','_Тер_ЛИДЕР','_Тер_РОСТА','_Тер_СИЛЬНЫЙ','Тер_ТОП','Тер_ЭФФЕКТИВНЫЙ'], rating: 3, online: 'Offline'},
-                {id: 9, name: 'Еженедельный FIX (детализированный)', indicators: ['Портфель', 'RN'], aggregation: ['Территории'], available: [false,false,true,false], detail_level: 'Сотрудник [Level 1]', update_date: 'now', update_type: 'Версионное', update_period: 'Неделя', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Неделя', business: 'B2B', iclass: 'fa fa-phone fa-3x', description: 'Отчет с основными бизнес-показателями фиксированого бизнеса B2B с детализацией до каналов продаж, отделов и сотрудников', basic_folder: 'WD', file_name: 'WD_FIX', year: '_2018', month: '04', file_extension: '.xlsx', file_postfix: ['','','','','','_Тер_КРУПНЫЕ','_Тер_ЛИДЕР','_Тер_РОСТА','_Тер_СИЛЬНЫЙ','Тер_ТОП','Тер_ЭФФЕКТИВНЫЙ'], rating: 3, online: 'Offline'}
+                {id: 0, name: 'ИНН и Контракты', indicators: ['Абоненты', 'Контракты', 'ИНН'], aggregation: ['РФ', 'Кластеры', 'Регионы'], available: [true,true,false,true], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивное', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-user-o fa-3x', description: 'Отчет B2B, который содержит абонентскую базу(ПО), контракты, ИНН мобильного и фиксированного бизнеса в разрезе сегменов', basic_folder: '09.ИНН', file_name: 'con_inn_Report', year: '', month: '', file_extension: '.xlsm', file_postfix: 0, rating: 10, online: 'Offline', fa_color: '#555'},
+                {id: 1, name: 'Миграции B2B', indicators: ['Миграции'], aggregation: ['РФ', 'Регионы'], available: [true,false,false,true], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивное', update_period: 'Месяц', main_user: 'Иванова Светлана Николаевна', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-exchange fa-3x', description: 'Отчет по миграциям B2B между сегментами массового и корпоративного рынка в доходах и абонентах', basic_folder: '11.Миграции', file_name: 'Migration_report', year: '', month: '', file_extension: '.xlsx', file_postfix: 0, rating: 10, online: 'Offline', fa_color: '#555'},
+                {id: 2, name: 'Модель RN и RL', indicators: ['RN', 'RL'], aggregation: ['РФ', 'Кластеры', 'Регионы'], available: [true,true,false,true], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивнoe', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-group fa-3x', description: 'Отчет содержит динамику новых доходов (RN) и упущенных доходов (RL) в разрезе терифных планов, сегментов и подсегментов B2B', basic_folder: '06.RN_RL_model', file_name: 'RN_Model', year: '_2018', month: '', file_extension: '.xlsb', file_postfix: ['_РФ','_Регионы Роста','_Сильный','_Лидер','_Эффективный'], rating: 8, online: 'Offline', fa_color: '#555'},
+                {id: 3, name: 'MNP B2B', indicators: ['MNP'], aggregation: ['РФ', 'Кластеры', 'Регионы'], available: [true,true,false,true], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивнoe', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-bar-chart fa-3x', description: 'Отчет показывает отток и приток абонентов и доходов B2B в результате MNP (Смена оператора с сохранением номера)', basic_folder: '15.MNP', file_name: 'MNP_B2B', year: '_2018', month: '', file_extension: '.xlsb', file_postfix: 0, rating: 4, online: 'Offline', fa_color: '#555'},
+                {id: 4, name: 'MNP B2B (Детальный)', indicators: ['MNP'], aggregation: ['РФ', 'Кластеры', 'Регионы'], available: [true,true,false,true], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивнoe', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Выгрузка', period: 'Месяц', business: 'B2B', iclass: 'fa fa-search-plus fa-3x', description: 'Детальная выгрузка показывает отток и приток абонентов и доходов B2B в результате MNP (Смена оператора с сохранением номера)', basic_folder: '15.MNP/MNP_B2B_DETAL', file_name: 'MNP_B2B_DETAL', year: '', month: '', file_extension: '.xlsb', file_postfix: ['','_Регионы Роста','_Сильный','_Лидер','_Эффективный'], rating: 7, online: 'Offline', fa_color: '#555'},
+                {id: 5, name: 'Дебиторская задолжность', indicators: ['Дебиторская задолжность'], aggregation: ['РФ', 'Кластеры', 'Регионы'], available: [true,true,false,true], detail_level: 'Регион', update_date: 'now', update_type: 'Версионное', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-thumb-tack fa-3x', description: 'Динамика и структура дебиторской задолжности в сегментах корпоративного рынка для мобильного и фиксированного бизнеса', basic_folder: '17.ДЗ', file_name: 'DEBT', year: '_2018', month: '03', file_extension: '.xlsx', file_postfix: 0, rating: 3, online: 'Offline', fa_color: '#555'},
+                {id: 6, name: 'Абонентское оборудование', indicators: ['Оборудование'], aggregation: ['Регионы'], available: [false,false,false,true], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивнoe', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-fax fa-3x', description: 'Распределение доходов, абонентской базы B2B и B2C по оборудованию, стандарту связи, OS', basic_folder: '27.Абонентское_оборудование', file_name: 'АО', year: '', month: '', file_extension: '.xlsb', file_postfix: 0, rating: 3, online: 'Offline', fa_color: '#555'},
+                {id: 7, name: 'Эффективность продаж B2B', indicators: ['Эффективность'], aggregation: ['РФ'], available: [true,false,false,false], detail_level: 'Сотрудник', update_date: 'now', update_type: 'Кумулятивнoe', update_period: 'Квартал', main_user: 'Тараканов Александр', dash: '', report_format: 'Электронная таблица', period: 'Квартал', business: 'B2B', iclass: 'fa fa-line-chart fa-3x', description: 'Отчет эффективности сотрудников продаж B2B', basic_folder: '31. Эффективность сотурдников продаж', file_name: 'Эффективность v3', year: '', month: '', file_extension: '.xlsx', file_postfix: 0, rating: 3, online: 'Offline', fa_color: '#555'},
+                {id: 8, name: 'Еженедельный MOB (детализированный)', indicators: ['Портфель', 'RN', 'RL'], aggregation: ['Территории'], available: [false,false,true,false], detail_level: 'Сотрудник', update_date: 'now', update_type: 'Версионное', update_period: 'Неделя', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Неделя', business: 'B2B', iclass: 'fa fa-mobile-phone fa-3x', description: 'Отчет с основными бизнес-показателями мобильного бизнеса B2B с детализацией до каналов продаж, отделов и сотрудников', basic_folder: 'WD', file_name: 'WD', year: '_2018', month: '04', file_extension: '.xlsb', file_postfix: ['','','','','','_Тер_КРУПНЫЕ','_Тер_ЛИДЕР','_Тер_РОСТА','_Тер_СИЛЬНЫЙ','Тер_ТОП','Тер_ЭФФЕКТИВНЫЙ'], rating: 3, online: 'Offline', fa_color: '#555'},
+                {id: 9, name: 'Еженедельный FIX (детализированный)', indicators: ['Портфель', 'RN'], aggregation: ['Территории'], available: [false,false,true,false], detail_level: 'Сотрудник', update_date: 'now', update_type: 'Версионное', update_period: 'Неделя', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Неделя', business: 'B2B', iclass: 'fa fa-phone fa-3x', description: 'Отчет с основными бизнес-показателями фиксированого бизнеса B2B с детализацией до каналов продаж, отделов и сотрудников', basic_folder: 'WD', file_name: 'WD_FIX', year: '_2018', month: '04', file_extension: '.xlsx', file_postfix: ['','','','','','_Тер_КРУПНЫЕ','_Тер_ЛИДЕР','_Тер_РОСТА','_Тер_СИЛЬНЫЙ','Тер_ТОП','Тер_ЭФФЕКТИВНЫЙ'], rating: 3, online: 'Offline', fa_color: '#555'},
+                {id: 10, name: 'Еженедельный отчет WEEK', indicators: ['Портфель', 'RN', 'RL', 'VAS', 'Cloud', 'ioT', 'Системная интеграция', 'Привлечение', 'Развитие'], aggregation: ['РФ', 'Кластеры'], available: [true,true,false,false], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивное', update_period: 'Неделя', main_user: 'Манукян Виктория', dash: '', report_format: 'Электронная таблица', period: 'Неделя', business: 'B2B', iclass: 'fa fa-bolt fa-3x', description: 'Оперативный отчет с основными показателями мобильного и фиксированного бизнеса', basic_folder: '12.Еженедельный_отчет', file_name: 'Week_КЦ', year: '', month: '', file_extension: '.xlsb', file_postfix: ['_РФ','_Регионы Роста','_Сильный','_Лидер','_Эффективный'], rating: 10, online: 'Offline', fa_color: '#555'},
+                {id: 11, name: 'Mобильный бизнес BOPOS', indicators: ['Доходы', 'База', 'Трафик'], aggregation: ['РФ', 'Кластеры'], available: [true,true,false,false], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивное', update_period: 'Месяц', main_user: 'Гладков Владимир', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-mobile fa-3x', description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', basic_folder: '02.Мобильный_Бизнес', file_name: 'Мобильный бизнес (BOPOS)', year: '', month: '', file_extension: '.xlsb', file_postfix: ['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ'], rating: 10, online: 'Offline', fa_color: '#555'},
+                {id: 12, name: 'Mобильный бизнес DFIN', indicators: ['Доходы', 'База', 'Трафик','m2m', 'Активация'], aggregation: ['РФ', 'Кластеры'], available: [true,true,false,false], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивное', update_period: 'Месяц', main_user: 'Гладков Владимир', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-mobile fa-3x', description: 'Отчет содержит основные показатели мобильного бизнеса: выручка, база, трафик', basic_folder: '02.Мобильный_Бизнес', file_name: 'Мобильный бизнес (DFIN)', year: '', month: '', file_extension: '.xlsb', file_postfix: ['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ'], rating: 10, online: 'Offline', fa_color: '#555'},
+                {id: 13, name: 'Фиксированный бизнec FIB', indicators: ['Доходы', 'Услуги', 'База'], aggregation: ['РФ', 'Кластеры'], available: [true,true,false,false], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивное', update_period: 'Месяц', main_user: 'Гладков Владимир', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-phone fa-3x', description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', basic_folder: '03.Фиксированный_Бизнес', file_name: 'FIX_FIB', year: '', month: '', file_extension: '.xlsb', file_postfix: ['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ'], rating: 10, online: 'Offline', fa_color: '#555'},
+                {id: 14, name: 'Онлайн отчет', indicators: ['Абоненты', 'Контракты', 'ИНН'], aggregation: ['РФ', 'Кластеры'], available: [true,true,true,true], detail_level: 'Регион', update_date: 'now', update_type: 'Кумулятивное', update_period: 'Месяц', main_user: 'Моторико Андрей', dash: '', report_format: 'Электронная таблица', period: 'Месяц', business: 'B2B', iclass: 'fa fa-window-restore fa-3x', description: 'Отчет содержит основные показатели фиксированного бизнеса: выручка, база, трафик', basic_folder: '03.Фиксированный_Бизнес', file_name: 'FIX_FIB', year: '', month: '', file_extension: '.xlsb', file_postfix: ['_РОССИЯ','_РЕГИОНЫ РОСТА','_СИЛЬНЫЙ','_ЛИДЕР','_ЭФФЕКТИВНЫЙ'], rating: 10, online: 'Online', fa_color: '#555'}
             ],
-            menus: { period: false, business: false, rating: false, indicators: false , online: false, detail_level: false, report_format: false},
+            menus: { period: false, business: false, indicators: false , online: false, detail_level: false, report_format: false},
             filters: {
                 period: {},
                 business: {},
-                rating: 0,
                 indicators: {},
                 online: {},
+                detail_level: {},
                 report_format: {},
-                detail_level: {}
+                rating: {min: 10, max: 0}
             },
             dropdown: { height: 0 },
-            rating: {min: 0, max:  10},
-            BasicReports: [
-                {id: 0, name: 'ИНН и Контракты', basic_folder: '09.ИНН', file_name: 'con_inn_Report.xlsm', rating: 10}
-            ]
+            rating: {min: 0, max:  10}
             //-----------------------------------//
         };
     },
@@ -204,7 +209,7 @@ new Vue({
                 }
             }
         },
-        activeMenu: function(index, from) {
+        activeMenu(index, from) {
             if (index === from) return;
 
             this.$nextTick(() => {
@@ -212,7 +217,6 @@ new Vue({
                     this.dropdown.height = 0
                 } else {
                     this.dropdown.height = `${this.$refs.menu[index].clientHeight + 10}px`
-                    if (this.dropdown.height == `10px`) this.dropdown.height = `${this.$refs.menu[index].clientHeight + 43}px`
                 }
             })
         }
@@ -312,7 +316,7 @@ new Vue({
             var reg = this.select_region;
             var url ='';
             var delimiter = '';
-            let domen = 'http://skr13.mts.ru/bpo/d/drbr/DocLib1/';
+            let domen = '';
 
             if (reg === null) {
                 this.request_report = rep_id;
@@ -328,7 +332,8 @@ new Vue({
             var basicurl = '';
             var availableid = -1;
             var version = '';
-            (rep_id == 9) ? version = '2' : version = ''
+            (rep_id == 9) ? version = '2' : version = '';
+            if(this.list_reports[rep_id].online === 'Offline'){domen = 'http://skr13.mts.ru/bpo/d/drbr/DocLib1/';} else { domen = 'http://mtsdash.ru:8088/superset/dashboard/'; }
 
             switch (rep_id) {
                 //------------Unique reports-------//
@@ -427,6 +432,7 @@ new Vue({
 
         clearAllFilters() {
             Object.keys(this.filters).forEach(this.clearFilter)
+
         },
         setMinRating() {
             var min = 100000000000000000000;
@@ -496,6 +502,32 @@ new Vue({
                 this.$set(this.filters.detail_level, e, false)
             })
 
+        },
+
+        dictionary(word) {
+            switch (word) {
+                case 'period' :
+                    return 'Период'
+                break;
+                case 'business' :
+                    return 'Бизнес'
+                break;
+                case 'indicators' :
+                    return 'Индикаторы'
+                break;
+                case 'online' :
+                    return 'Онлайн'
+                break;
+                case 'detail_level' :
+                    return 'Уровень детализации'
+                break;
+                case 'report_format' :
+                    return 'Формат отчета'
+                break;
+                default:
+                    return word
+                break;
+            }
         }
         //-----------------------------------//
     },

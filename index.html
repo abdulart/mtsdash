@@ -125,20 +125,28 @@
             <h4>Отчеты</h4>
             <h3>В этом разделе вы можете скачать актуальные версии офлайн отчетов для вашего региона</h3>
           </div>
-          <div class="col-lg-12" style="margin-bottom: 10px;">
+          <div class="col-lg-12" style="margin-bottom: 50px; margin-top: 50px">
             <nav class="nav_i">
               <menu class="nav__controls">
                 <i class="fa fa-filter" ></i>
 
                 <li v-for="(active, menu) in menus" class="nav__label"
                     :class="{
-          'nav__label--active' : active
+          'nav__label--active' : active,
+          'nav__label--filter' : (['e']).concat(activeFilters[menu]).length > 1
         }" @click="setMenu(menu, active)">
-                  {{ menu }}
+                  {{ dictionary(menu) }}
                 </li>
 
               </menu>
-              <li class="nav__label nav__label--clear" @click="clearAllFilters" >Clear all</li>
+              <li class="nav__label" @click="clearAllFilters" :class="{
+              'nav__label--clear' :
+              (['e']).concat(activeFilters.period).length+
+              (['e']).concat(activeFilters.business).length+
+              (['e']).concat(activeFilters.indicators).length+
+              (['e']).concat(activeFilters.detail_level).length+
+              (['e']).concat(activeFilters.report_format).length <= 5
+              }">Очистить</li>
             </nav>
 
             <transition-group name="dropdown" tag="section" class="dropdown" :style="dropdown">
@@ -171,10 +179,15 @@
                 <li class="report">
 
                   <div class="report__info">
+                    <div style="height: 40px">
+                      <span style="float: left" class="label label-danger" v-if="report.update_date == 'now'">New</span>
+                      <span style="float: right" class="label label-success" v-if="report.online == 'Online'">Online</span>
+                      <!--<span class="label label-info">{{report.report_format}}</span>-->
+                    </div>
                     <!--<span class="label label-danger fix_span_right" v-if="report.online == 'Online'">Online</span>
                     <span class="label label-success fix_span_left" v-if="report.fresh == 'New'">New</span>-->
                     <icon class="report__logo">
-                      <i v-bind:class="[report.iclass]" aria-hidden="true" v-bind:style="{ color: report.facolor}"></i>
+                      <i v-bind:class="[report.iclass]" aria-hidden="true" v-bind:style="{ color: report.fa_color}"></i>
                     </icon>
                     <h2 class="report__name">{{report.name}}</h2>
                     <h2 class="report__description">{{report.description}}</h2>
@@ -187,7 +200,7 @@
                       <p class="report__label">Бизнес:</p>
                       <p class="report__text">{{report.business}}</p>
                     </li>
-
+                    <span style="height: 18px" class="label label-default labelhover" data-toggle="popover" data-placement="top" title="Индикаторы в отчете:" v-bind:data-content="[report.indicators.join(', ')]">i</span>
                     <li class="report__data">
                       <p class="report__label">Период:</p>
                       <p class="report__text">{{report.period}}</p>
