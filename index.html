@@ -90,7 +90,7 @@
         <div class="col-md-4">
           <i class="fa fa-pencil-square-o fa-3x"></i>
           <h4></h4>
-          <a href="http://skr13.mts.ru/bpo/d/drbr/_layouts/15/listform.aspx?PageType=8&ListId=%7BDEAD92E4%2D26A1%2D40C1%2DA654%2D32DF0FF5AC50%7D&RootFolder=" target="_blank">
+          <a href="https://skr13.mts.ru/bpo/d/drbr/Lists/Tasks/AllItems.aspx?PageType=8&ListId=%7BDEAD92E4%2D26A1%2D40C1%2DA654%2D32DF0FF5AC50%7D&RootFolder=" target="_blank">
             <h4>Создать заявку</h4>
           </a>
           <p>Заказ разовых выгрузок в случае отсутствия нужного показателя или требуемой детализации в отчетах</p>
@@ -137,9 +137,7 @@
         }" @click="setMenu(menu, active)">
                   {{ dictionary(menu) }}
                 </li>
-
-              </menu>
-              <li class="nav__label" @click="clearAllFilters" :class="{
+                <li class="nav__label" style="color: #ff7878;" @click="clearAllFilters" :class="{
               'nav__label--clear' :
               (['e']).concat(activeFilters.period).length+
               (['e']).concat(activeFilters.business).length+
@@ -147,6 +145,8 @@
               (['e']).concat(activeFilters.detail_level).length+
               (['e']).concat(activeFilters.report_format).length <= 5
               }">Очистить</li>
+              </menu>
+
             </nav>
 
             <transition-group name="dropdown" tag="section" class="dropdown" :style="dropdown">
@@ -180,8 +180,15 @@
 
                   <div class="report__info">
                     <div style="height: 40px">
-                      <span style="float: left" class="label label-danger" v-if="report.update_date == 'now'">New</span>
-                      <span style="float: right" class="label label-success" v-if="report.online == 'Online'">Online</span>
+                      <div class="ribbon" v-if="report.update_date == 'now'"><span>New</span></div>
+                      <span data-html="true" data-trigger="focus" tabindex="0" data-template='
+                        <div class="popover" role="tooltip">
+                          <div class="arrow"></div>
+                          <h3 class="popover-title"></h3>
+                          <div class="popover-content"></div>
+                        </div>
+                      ' style="height: 18px; float: right; color: black;" class="label labelhover" data-toggle="popover" data-placement="bottom" title="<a href=#>Подписаться на отчет</a>" v-bind:data-content="'<strong>Индикаторы: </strong>'+[report.indicators.join(', ')]+'</br>'+'<strong>Ответственный за отчет: </strong>'+[report.main_user]">?</span>
+                      <!--<span style="float: left" class="label label-danger" v-if="report.update_date == 'now'">New</span>-->
                       <!--<span class="label label-info">{{report.report_format}}</span>-->
                     </div>
                     <!--<span class="label label-danger fix_span_right" v-if="report.online == 'Online'">Online</span>
@@ -190,7 +197,8 @@
                       <i v-bind:class="[report.iclass]" aria-hidden="true" v-bind:style="{ color: report.fa_color}"></i>
                     </icon>
                     <h2 class="report__name">{{report.name}}</h2>
-                    <h2 class="report__description">{{report.description}}</h2>
+                    <!--<div><span class="label label_custom" v-if="report.online == 'Online'">Online</span></div>-->
+                  <div><h2 class="report__description">{{report.description}}</h2></div>
                     <br>
                     <button @click="OpenReport(report.id)" class="btn_report">СКАЧАТЬ</button>
                   </div>
@@ -200,7 +208,6 @@
                       <p class="report__label">Бизнес:</p>
                       <p class="report__text">{{report.business}}</p>
                     </li>
-                    <span style="height: 18px" class="label label-default labelhover" data-toggle="popover" data-placement="top" title="Индикаторы в отчете:" v-bind:data-content="[report.indicators.join(', ')]">i</span>
                     <li class="report__data">
                       <p class="report__label">Период:</p>
                       <p class="report__text">{{report.period}}</p>

@@ -633,7 +633,7 @@ inf {
     margin-bottom: 30px;
 }
 .report__name {
-    height: 4.5rem;
+    /*height: 4.5rem;*/
     margin: 0.75rem 0;
     font-size: 2rem;
     font-weight: 300;
@@ -828,8 +828,9 @@ inf {
     border-bottom: 1px solid #c5d0d1;
 }
 .nav__controls {
+    align-items: center;
+    margin: auto;
     display: flex;
-    margin: 0;
     padding: 0;
 }
 .nav__icon {
@@ -837,12 +838,18 @@ inf {
     height: 1rem;
     fill: currentColor;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
+
 .nav__label {
     list-style: none;
     position: relative;
     margin-left: 1rem;
     text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
     z-index: 1;
+    margin-right: 2rem;
     cursor: pointer;
 }
 .nav__label::after {
@@ -858,15 +865,14 @@ inf {
     transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
 }
 .nav__label--clear {
-    color: #f68185;
+    color: #ff7878;
     opacity: 0;
     -webkit-transform: translate3d(-25%, 0, 0);
     transform: translate3d(-25%, 0, 0);
     pointer-events: none;
     transition: all 275ms ease-in-out;
-
-    float: right;
     position: relative;
+    display: none;
 }
 .nav__label--filter ~ .nav__label--clear {
     opacity: 1;
@@ -890,6 +896,7 @@ inf {
 .dropdown {
     position: relative;
     height: 0;
+    margin: auto;
     overflow: hidden;
     transition: height 350ms;
 }
@@ -946,6 +953,8 @@ inf {
     line-height: 1.35;
     cursor: pointer;
     transition: all 275ms;
+    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
 }
 .filters__item:hover {
     border-color: #b9b9b9;
@@ -1018,4 +1027,37 @@ inf {
 
 .labelhover {
     cursor: pointer;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
+
+.ribbon {
+    position: absolute;
+    left: 0px; top: 0px;
+    z-index: 1;
+    overflow: hidden;
+    width: 50px; height: 50px;
+    text-align: right;
+}
+.ribbon span {
+    font: 700 10px/1 'Lato', sans-serif;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    width: 83px;
+    display: block;
+    background: #79A70A;
+    background: linear-gradient(#E86868 0%, #F05151 100%);
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 8px; left: -24px;
+}
+
+
+.label_custom {
+    background-color: #79A70A;
 }
