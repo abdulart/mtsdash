@@ -825,7 +825,7 @@ inf {
     white-space: nowrap;
     margin: 0;
     padding: 0rem 0.5rem 1rem;
-    border-bottom: 1px solid #c5d0d1;
+    /*border-bottom: 1px solid #c5d0d1;*/
 }
 .nav__controls {
     align-items: center;
@@ -931,7 +931,7 @@ inf {
     left: 0;
     width: 100%;
     height: 1px;
-    border-bottom: 1px solid #c5d0d1;
+    /*border-bottom: 1px solid #c5d0d1;*/
 }
 
 .filters {
@@ -943,6 +943,7 @@ inf {
 }
 .filters__item {
     list-style: none;
+    background-color: white;
     margin-top: 0.5rem;
     margin-right: 0.5rem;
     padding: 0.25rem 0.5rem;
@@ -1052,7 +1053,7 @@ inf {
     display: block;
     background: #79A70A;
     background: linear-gradient(#E86868 0%, #F05151 100%);
-    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    /*box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);*/
     position: absolute;
     top: 8px; left: -24px;
 }

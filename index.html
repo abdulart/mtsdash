@@ -90,7 +90,7 @@
         <div class="col-md-4">
           <i class="fa fa-pencil-square-o fa-3x"></i>
           <h4></h4>
-          <a href="https://skr13.mts.ru/bpo/d/drbr/Lists/Tasks/AllItems.aspx?PageType=8&ListId=%7BDEAD92E4%2D26A1%2D40C1%2DA654%2D32DF0FF5AC50%7D&RootFolder=" target="_blank">
+          <a href="https://skr13.mts.ru/bpo/d/drbr/Lists/Tasks/AllItems.aspx" target="_blank">
             <h4>Создать заявку</h4>
           </a>
           <p>Заказ разовых выгрузок в случае отсутствия нужного показателя или требуемой детализации в отчетах</p>
@@ -181,13 +181,13 @@
                   <div class="report__info">
                     <div style="height: 40px">
                       <div class="ribbon" v-if="report.update_date == 'now'"><span>New</span></div>
-                      <span data-html="true" data-trigger="focus" tabindex="0" data-template='
+                      <i data-html="true" data-trigger="focus" tabindex="0" data-template='
                         <div class="popover" role="tooltip">
                           <div class="arrow"></div>
                           <h3 class="popover-title"></h3>
                           <div class="popover-content"></div>
                         </div>
-                      ' style="height: 18px; float: right; color: black;" class="label labelhover" data-toggle="popover" data-placement="bottom" title="<a href=#>Подписаться на отчет</a>" v-bind:data-content="'<strong>Индикаторы: </strong>'+[report.indicators.join(', ')]+'</br>'+'<strong>Ответственный за отчет: </strong>'+[report.main_user]">?</span>
+                      ' style="height: 18px; float: right; color: #555;" class="fa fa-info-circle" data-toggle="popover" data-placement="bottom" title="<a href=#>Подписаться на отчет</a>" v-bind:data-content="'<strong>Индикаторы: </strong>'+[report.indicators.join(', ')]+'</br>'+'<strong>Ответственный за отчет: </strong>'+[report.main_user]"></i>
                       <!--<span style="float: left" class="label label-danger" v-if="report.update_date == 'now'">New</span>-->
                       <!--<span class="label label-info">{{report.report_format}}</span>-->
                     </div>
