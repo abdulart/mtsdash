@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animate.css">
 
   <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/favicon-32x32.png">
@@ -69,7 +70,7 @@
 
           </div>
 
-          <div class="col-md-5 col-md-offset-1 col-md-pull-6 main_header" style="position: relative;">
+          <div class="col-md-5 col-md-offset-1 col-md-pull-6 main_header animated flipInX" style="position: relative;">
             <headtext >MTC <span id="dash_nowrap">DASHB<i class="fa fa-pie-chart main_color"></i>ARD</span></headtext>
             <h3 class="centered">Откройте для себя современные инструменты анализа и визуализации данных с новой и современной аналитической онлайн-платформой</h3>
             <a href="http://mtsdash.ru:8088" target="_blank">
@@ -182,12 +183,12 @@
                     <div style="height: 40px">
                       <div class="ribbon" v-if="report.update_date == 'now'"><span>New</span></div>
                       <i data-html="true" data-trigger="focus" tabindex="0" data-template='
-                        <div class="popover" role="tooltip">
+                        <div class="popover" role="tooltip" >
                           <div class="arrow"></div>
                           <h3 class="popover-title"></h3>
                           <div class="popover-content"></div>
                         </div>
-                      ' style="height: 18px; float: right; color: #555;" class="fa fa-info-circle" data-toggle="popover" data-placement="bottom" title="<a href=#>Подписаться на отчет</a>" v-bind:data-content="'<strong>Индикаторы: </strong>'+[report.indicators.join(', ')]+'</br>'+'<strong>Ответственный за отчет: </strong>'+[report.main_user]"></i>
+                      ' style="height: 18px; float: right; color: #555;" class="fa fa-info-circle" data-toggle="popover" data-placement="bottom" title="<a href=#>Информация</a>" v-bind:data-content="'<strong>Индикаторы: </strong>'+[report.indicators.join(', ')]+'</br>'+'<strong>Ответственный за отчет: </strong>'+[report.main_user]"></i>
                       <!--<span style="float: left" class="label label-danger" v-if="report.update_date == 'now'">New</span>-->
                       <!--<span class="label label-info">{{report.report_format}}</span>-->
                     </div>
@@ -199,8 +200,7 @@
                     <h2 class="report__name">{{report.name}}</h2>
                     <!--<div><span class="label label_custom" v-if="report.online == 'Online'">Online</span></div>-->
                   <div><h2 class="report__description">{{report.description}}</h2></div>
-                    <br>
-                    <button @click="OpenReport(report.id)" class="btn_report">СКАЧАТЬ</button>
+                  <div class="div_relative"><button @click="OpenReport(report.id)" class="btn_report">ОТКРЫТЬ</button></div>
                   </div>
 
                   <ul class="report__details">

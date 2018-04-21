@@ -3,7 +3,9 @@
 var STORAGE_KEY = 'mts-dash-region-P7oZi9sL'
 
 $(function () {
-    $('[data-toggle="popover"]').popover()
+    $('[data-toggle="popover"]').popover({
+        container: 'body'
+    })
 })
 
 Vue.component('modal', {
@@ -31,7 +33,7 @@ function shake() {
     var box = document.getElementById("menu");
     box.style.animationName = null;
     box.offsetHeight; /* trigger reflow */
-    box.style.animationName = "shake";
+    box.style.animationName = "tada";
   }
 
   Vue.use(VueSmoothScroll)

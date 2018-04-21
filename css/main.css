@@ -701,7 +701,6 @@ inf {
     padding-bottom: 5px;
     cursor: pointer;
     background: #ff7878;
-
     color: white;
     border: #ff7878 1px solid;
     transition: 250ms ease-out;
@@ -1061,4 +1060,16 @@ inf {
 
 .label_custom {
     background-color: #79A70A;
+}
+
+.div_relative {
+    width: 204px;
+    bottom: 40px;
+    position: absolute;
+    height: 6rem;
+    margin: 0.75rem 0;
+    padding: 0 0.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 300;
 }
