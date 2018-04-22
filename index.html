@@ -182,7 +182,7 @@
                   <div class="report__info">
                     <div style="height: 40px">
                       <div class="ribbon" v-if="report.update_date == 'now'"><span>New</span></div>
-                      <i data-html="true" style="height: 18px; float: right; color: #555;" class="fa fa-info-circle" data-toggle="popover" data-placement="bottom" title="<a href=#>Информация</a>" v-bind:data-content="'<strong>Индикаторы: </strong>'+[report.indicators.join(', ')]+'</br>'+'<strong>Ответственный за отчет: </strong>'+[report.main_user]"></i>
+                      <i data-html="true" data-trigger="hover" style="height: 18px; float: right; color: #555;" class="fa fa-info-circle" data-toggle="popover" data-placement="bottom" title="<a href=#>Информация</a>" v-bind:data-content="'<strong>Индикаторы: </strong>'+[report.indicators.join(', ')]+'</br>'+'<strong>Ответственный за отчет: </strong>'+[report.main_user]"></i>
                       <!--<span style="float: left" class="label label-danger" v-if="report.update_date == 'now'">New</span>-->
                       <!--<span class="label label-info">{{report.report_format}}</span>-->
                     </div>
@@ -432,12 +432,12 @@
   </script>
 
   <!-- Конец шаблона модального окна для выбора региона или кластера -->
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> type="text/babel"-->
   <script src="js/vue.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/vue-smooth-scroll.min.js"></script>
-  <script type="text/babel" src="js/script.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 
