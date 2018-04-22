@@ -182,13 +182,7 @@
                   <div class="report__info">
                     <div style="height: 40px">
                       <div class="ribbon" v-if="report.update_date == 'now'"><span>New</span></div>
-                      <i data-html="true" data-trigger="focus" tabindex="0" data-template='
-                        <div class="popover" role="tooltip" >
-                          <div class="arrow"></div>
-                          <h3 class="popover-title"></h3>
-                          <div class="popover-content"></div>
-                        </div>
-                      ' style="height: 18px; float: right; color: #555;" class="fa fa-info-circle" data-toggle="popover" data-placement="bottom" title="<a href=#>Информация</a>" v-bind:data-content="'<strong>Индикаторы: </strong>'+[report.indicators.join(', ')]+'</br>'+'<strong>Ответственный за отчет: </strong>'+[report.main_user]"></i>
+                      <i data-html="true" style="height: 18px; float: right; color: #555;" class="fa fa-info-circle" data-toggle="popover" data-placement="bottom" title="<a href=#>Информация</a>" v-bind:data-content="'<strong>Индикаторы: </strong>'+[report.indicators.join(', ')]+'</br>'+'<strong>Ответственный за отчет: </strong>'+[report.main_user]"></i>
                       <!--<span style="float: left" class="label label-danger" v-if="report.update_date == 'now'">New</span>-->
                       <!--<span class="label label-info">{{report.report_format}}</span>-->
                     </div>

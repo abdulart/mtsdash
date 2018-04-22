@@ -1,12 +1,12 @@
 "use strict";
 
-var STORAGE_KEY = 'mts-dash-region-P7oZi9sL'
-
 $(function () {
     $('[data-toggle="popover"]').popover({
         container: 'body'
     })
 })
+
+var STORAGE_KEY = 'mts-dash-region-P7oZi9sL'
 
 Vue.component('modal', {
     template: '#modal-template'
@@ -416,6 +416,11 @@ new Vue({
         setFilter(filter, option) {
             this.filters[filter][option] = !this.filters[filter][option]
 
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+                container: 'body'
+            })
+        })
             // setTimeout(() => {
             //     this.clearFilter(filter, option, this.filters[filter][option])
             // }, 100)

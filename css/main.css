@@ -873,6 +873,10 @@ inf {
     position: relative;
     display: none;
 }
+.nav__label--filter {
+    border-bottom: 1px solid #ccc;
+    padding: 3px;
+}
 .nav__label--filter ~ .nav__label--clear {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
@@ -882,14 +886,22 @@ inf {
 .nav__label--filter::after, .nav__label--active::after {
     -webkit-transform: scale(1);
     transform: scale(1);
+    border-bottom: none;
 }
 .nav__label--filter::after {
     content: '\002a';
     color: #3e0e4c;
 }
 .nav__label--active::after {
+    border-bottom: none;
     content: '\00d7';
     color: #f68185;
+}
+
+nav__label--active::after:not(:last-child)::after {
+    border-bottom: none;
+    position: absolute;
+    right: -15px;
 }
 
 .dropdown {
