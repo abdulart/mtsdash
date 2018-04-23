@@ -148,8 +148,8 @@ new Vue({
         }
         //--------- added --------//
 
-        ,
-        activeMenu: function activeMenu() {
+
+        , activeMenu: function activeMenu() {
             var _this2 = this;
 
             return Object.keys(this.menus).reduce(function ($$, set, i) {
@@ -418,8 +418,8 @@ new Vue({
         }
         //---------------Added---------------//
 
-        ,
-        setMenu: function setMenu(menu, active) {
+
+        , setMenu: function setMenu(menu, active) {
             var _this3 = this;
 
             Object.keys(this.menus).forEach(function (tab) {
@@ -490,7 +490,6 @@ new Vue({
         onlyUnique: function onlyUnique(value, index, self) {
             return self.indexOf(value) === index;
         },
-
 
         //Находим уникальные значения из свойств-фильтров объекта list_reports и передаем их в качестве фильтров в объект filters//
         setUniqueProperties: function setUniqueProperties() {
