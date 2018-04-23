@@ -2,6 +2,7 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/js/bootbox.js" />
         <item url="file://$PROJECT_DIR$/dist/js/script.js" />
         <item url="file://$PROJECT_DIR$/dist/js/sct.js" />
         <item url="file://$PROJECT_DIR$/dist/js/ttscr.js" />
@@ -9,6 +10,7 @@
       </sourceFilesUrls>
     </properties>
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/js/bootbox.js" />
       <root url="file://$PROJECT_DIR$/dist/js/script.js" />
       <root url="file://$PROJECT_DIR$/dist/js/sct.js" />
       <root url="file://$PROJECT_DIR$/dist/js/ttscr.js" />

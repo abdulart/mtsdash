@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
 
 body {
     background-color: #f2f2f2;
@@ -838,8 +838,6 @@ inf {
     fill: currentColor;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:100');
-
 .nav__label {
     list-style: none;
     position: relative;
@@ -1042,8 +1040,6 @@ nav__label--active::after:not(:last-child)::after {
 .labelhover {
     cursor: pointer;
 }
-
-@import url(https://fonts.googleapis.com/css?family=Lato:700);
 
 .ribbon {
     position: absolute;
