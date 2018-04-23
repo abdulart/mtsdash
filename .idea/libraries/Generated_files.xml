@@ -4,11 +4,13 @@
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/dist/js/script.js" />
         <item url="file://$PROJECT_DIR$/dist/js/sct.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/ttscr.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/dist/js/script.js" />
       <root url="file://$PROJECT_DIR$/dist/js/sct.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/ttscr.js" />
     </CLASSES>
     <SOURCES />
   </library>
