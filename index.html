@@ -135,8 +135,12 @@
                     :class="{
           'nav__label--active' : active,
           'nav__label--filter' : (['e']).concat(activeFilters[menu]).length > 1
-        }" @click="setMenu(menu, active)">
-                  {{ dictionary(menu) }}
+        }">
+                  <span :class="{
+                    'span__label--active' : active
+                  }" @click="setMenu(menu, active)" class="fx__underline">{{ dictionary(menu) }}</span> <span class="menu__span" :class="{
+                    'menu__span--filter' : (['e']).concat(activeFilters[menu]).length <= 1
+                  }" @click="clearFilter(menu, active)">x</span>
                 </li>
                 <li class="nav__label" style="color: #ff7878;" @click="clearAllFilters" :class="{
               'nav__label--clear' :
@@ -175,7 +179,9 @@
             </transition-group>
           </div>
           <transition-group name="company" tag="div">
-            <div class="col-md-3 col-sm-4 report__list" v-for="report in list" v-bind:key="report.id" v-if="report.rating >= filters.rating">
+            <div class="col-md-3 col-sm-4 report__list" v-for="report in list" v-bind:key="report.id" v-if="report.rating >= filters.rating" :class="{
+              'transparent__report': report.transparent == 1
+            }">
               <ul cldis="report__list" class="pdd_fix">
                 <li class="report">
 
@@ -437,6 +443,7 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/vue-smooth-scroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
   <script src="js/script.js"></script>
 
 </body>

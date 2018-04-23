@@ -851,6 +851,7 @@ inf {
     margin-right: 2rem;
     cursor: pointer;
 }
+
 .nav__label::after {
     content: '\00d7';
     display: inline-block;
@@ -874,8 +875,8 @@ inf {
     display: none;
 }
 .nav__label--filter {
-    border-bottom: 1px solid #ccc;
-    padding: 3px;
+    /*border-bottom: 1px solid #ccc;*/
+    /*padding: 3px;*/
 }
 .nav__label--filter ~ .nav__label--clear {
     opacity: 1;
@@ -888,15 +889,15 @@ inf {
     transform: scale(1);
     border-bottom: none;
 }
-.nav__label--filter::after {
-    content: '\002a';
-    color: #3e0e4c;
-}
-.nav__label--active::after {
-    border-bottom: none;
-    content: '\00d7';
-    color: #f68185;
-}
+/*.nav__label--filter::after {*/
+    /*content: '\002a';*/
+    /*color: #3e0e4c;*/
+/*}*/
+/*.nav__label--active::after {*/
+    /*border-bottom: none;*/
+    /*content: '\00d7';*/
+    /*color: #f68185;*/
+/*}*/
 
 nav__label--active::after:not(:last-child)::after {
     border-bottom: none;
@@ -951,6 +952,7 @@ nav__label--active::after:not(:last-child)::after {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: center;
 }
 .filters__item {
     list-style: none;
@@ -1084,4 +1086,22 @@ nav__label--active::after:not(:last-child)::after {
     font-size: 1.3rem;
     text-align: center;
     font-weight: 300;
+}
+
+.transparent__report {
+    opacity: 0.35;
+}
+
+.menu__span {
+    text-transform: lowercase;
+    color: #ff7878;
+}
+
+.menu__span--filter {
+    display: none;
+}
+
+.span__label--active {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
 }
